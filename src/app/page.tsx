@@ -197,13 +197,14 @@ export default function Home() {
                 >
                   Get a Free IT Assessment
                 </Link>
-                {/* TODO: Replace /contact with your Acuity booking URL once available */}
-                <Link
-                  href="/contact"
+                <a
+                  href="https://DoubleClick.as.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base px-8 py-4 rounded text-center transition-colors"
                 >
                   Book an Appointment
-                </Link>
+                </a>
               </div>
               <p className="text-slate-400 text-sm mt-5">
                 Or call us:{" "}
@@ -583,8 +584,16 @@ export default function Home() {
               Schedule a Free Assessment
             </Link>
             <a
-              href="tel:+18889254259"
+              href="https://DoubleClick.as.me/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-blue-700 hover:bg-blue-800 text-white font-semibold text-base px-8 py-4 rounded transition-colors"
+            >
+              Book Online
+            </a>
+            <a
+              href="tel:+18889254259"
+              className="bg-blue-800 hover:bg-blue-900 text-white font-semibold text-base px-8 py-4 rounded transition-colors"
             >
               Call (888) 9-CLICK-9
             </a>
