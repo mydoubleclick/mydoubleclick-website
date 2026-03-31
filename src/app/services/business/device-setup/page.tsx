@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function DeviceSetup() {
   return (
     <ServiceDetailPage
-      breadcrumb="Managed IT Services"
+      breadcrumb="Business"
       breadcrumbHref="/services/business"
       tag="Managed IT Services"
       title="Device Procurement & Setup"

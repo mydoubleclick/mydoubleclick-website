@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services/business", label: "Managed IT Services" },
-  { href: "/services/residential", label: "Home & Residential" },
+  { href: "/services/business", label: "Business" },
+  { href: "/services/residential", label: "Residential" },
   { href: "/about", label: "About" },
 ];
 

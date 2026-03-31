@@ -28,7 +28,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               {[
-                { href: "/services/business", label: "Managed IT Services" },
+                { href: "/services/business", label: "Business" },
                 {
                   href: "/services/residential",
                   label: "Residential & Home Office",

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function RemoteMonitoring() {
   return (
     <ServiceDetailPage
-      breadcrumb="Managed IT Services"
+      breadcrumb="Business"
       breadcrumbHref="/services/business"
       tag="Managed IT Services"
       title="Remote Monitoring & Management"
