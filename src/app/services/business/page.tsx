@@ -12,6 +12,7 @@ const services = [
     title: "Managed IT & Help Desk",
     description:
       "Ongoing monitoring and management of your IT infrastructure. One number to call when anything goes wrong.",
+    href: "/services/business/managed-it",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -23,6 +24,7 @@ const services = [
     title: "Endpoint Security",
     description:
       "Bitdefender GravityZone protection across all your desktops and laptops. Enterprise-grade antivirus and threat detection.",
+    href: "/services/business/endpoint-security",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -34,6 +36,7 @@ const services = [
     title: "Firewall & Network Security",
     description:
       "Fortinet FortiGate firewall installation, configuration, and ongoing management. Secure, reliable business networking.",
+    href: "/services/business/firewall-networking",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -45,6 +48,7 @@ const services = [
     title: "Cloud Backup",
     description:
       "Backblaze-powered cloud backup for business-critical data. Automated, offsite, and recoverable when you need it.",
+    href: "/services/business/cloud-backup",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -56,6 +60,7 @@ const services = [
     title: "On-Site Support",
     description:
       "When remote isn't enough, we come to your office. Hardware failures, new setups, cabling, and more.",
+    href: "/services/business/on-site-support",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -69,6 +74,7 @@ const services = [
     title: "Device Procurement & Setup",
     description:
       "We source, configure, and deploy Windows and Mac workstations so they're ready for your team from day one.",
+    href: "/services/business/device-setup",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -80,6 +86,7 @@ const services = [
     title: "Remote Monitoring (RMM)",
     description:
       "Atera-powered RMM keeps us aware of your systems 24/7 — updates, alerts, performance, and health monitoring.",
+    href: "/services/business/remote-monitoring",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -91,6 +98,7 @@ const services = [
     title: "MDM & Mobile Devices",
     description:
       "Mobile device management for iPhones, iPads, and company laptops. Policy enforcement, remote wipe, and compliance.",
+    href: "/services/business/mdm",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -98,12 +106,6 @@ const services = [
       </svg>
     ),
   },
-];
-
-const pricing = [
-  { label: "Business IT (hourly)", value: "$150–$175/hr" },
-  { label: "Endpoint Security", value: "~$5/mo per device" },
-  { label: "Project work", value: "Fixed cost quote" },
 ];
 
 export default function BusinessServices() {
@@ -125,73 +127,52 @@ export default function BusinessServices() {
         </div>
       </section>
 
-      {/* Services grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-md transition-all"
+                href={service.href}
+                className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-md transition-all"
               >
                 <div className="inline-flex p-2.5 bg-blue-600 text-white rounded-lg mb-4">
                   {service.icon}
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">
+                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-              </div>
+                <span className="text-blue-600 text-xs font-semibold flex items-center gap-1">
+                  Learn more
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-16 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-4">
-                Transparent Pricing
-              </h2>
-              <p className="text-slate-500 text-base leading-relaxed mb-6">
-                We don&apos;t believe in surprise invoices. Hourly rates are
-                clear upfront, and projects come with a fixed-cost quote before
-                any work begins.
-              </p>
-              <div className="space-y-3">
-                {pricing.map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex justify-between items-center py-3 border-b border-slate-200"
-                  >
-                    <span className="text-slate-600 text-sm">{item.label}</span>
-                    <span className="font-bold text-slate-900 text-sm">
-                      {item.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-blue-600 rounded-2xl p-8 text-white">
-              <h3 className="text-xl font-extrabold mb-3">
-                Ready to get started?
-              </h3>
-              <p className="text-blue-100 text-sm mb-6">
-                Tell us about your business and what you&apos;re dealing with.
-                We&apos;ll put together a plan that makes sense.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-white text-blue-600 font-bold px-6 py-3 rounded hover:bg-blue-50 transition-colors text-sm"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
+      <section className="bg-blue-600 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-xl font-extrabold text-white mb-1">
+              Ready to get started?
+            </h2>
+            <p className="text-blue-100 text-sm">
+              We&apos;ll assess your setup and give you a clear quote — no obligation.
+            </p>
           </div>
+          <Link
+            href="/contact"
+            className="bg-white text-blue-600 font-bold px-8 py-3 rounded hover:bg-blue-50 transition-colors text-sm flex-shrink-0"
+          >
+            Schedule a Free Assessment
+          </Link>
         </div>
       </section>
     </>

@@ -138,7 +138,7 @@ export default function RemoteSupport() {
               },
               {
                 q: "How much does remote support cost?",
-                a: "Remote support is billed at our standard hourly rate, with a 30-minute minimum. Businesses: $150–$175/hr. Residential: $125–$150/hr.",
+                a: "Remote support is billed at our standard hourly rate with a 30-minute minimum. Contact us for current rates — we'll always confirm pricing before we start.",
               },
             ].map((faq) => (
               <div

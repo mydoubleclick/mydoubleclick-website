@@ -12,41 +12,49 @@ const services = [
     title: "Computer Repair & Tune-Up",
     description:
       "Slow computer? Strange errors? Hardware failure? We diagnose and fix it — Windows and Mac.",
+    href: "/services/residential/computer-repair",
   },
   {
     title: "Home Network Setup",
     description:
       "Wi-Fi that actually covers your whole home, wired connections where you need them, and a router that works.",
+    href: "/services/residential/home-networking",
   },
   {
     title: "Virus & Malware Removal",
     description:
       "Full cleanup of infected machines, followed by endpoint security setup so it doesn't happen again.",
+    href: "/services/residential/virus-removal",
   },
   {
     title: "New Device Setup",
     description:
       "Got a new computer, tablet, or phone? We get everything configured, transferred, and working from day one.",
+    href: "/services/residential/new-device-setup",
   },
   {
     title: "Data Backup & Recovery",
     description:
       "Set up automated backups and recover lost files before a hardware failure becomes a disaster.",
+    href: "/services/residential/data-backup",
   },
   {
     title: "Home Office Support",
     description:
       "VPN, printers, video calls, shared drives — we make working from home actually work.",
+    href: "/services/residential/home-office",
   },
   {
     title: "Security Setup",
     description:
       "Antivirus, password managers, two-factor authentication. Peace of mind for you and your family.",
+    href: "/services/residential/security-setup",
   },
   {
     title: "Remote Support",
     description:
       "Many issues can be solved remotely in minutes. No waiting around — we connect to your computer and fix it live.",
+    href: "/services/residential/remote-support",
   },
 ];
 
@@ -73,82 +81,53 @@ export default function ResidentialServices() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-sky-300 hover:shadow-md transition-all"
+                href={service.href}
+                className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-sky-300 hover:shadow-md transition-all"
               >
                 <div className="w-2 h-2 bg-sky-500 rounded-full mb-3" />
-                <h3 className="font-bold text-slate-900 mb-2">
+                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-              </div>
+                <span className="text-sky-600 text-xs font-semibold flex items-center gap-1">
+                  Learn more
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-4">
-                Pricing
-              </h2>
-              <p className="text-slate-500 mb-6">
-                Residential and home office support is billed hourly, with no
-                surprise charges. We&apos;ll tell you the rate before any work
-                begins.
-              </p>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-3 border-b border-slate-200">
-                  <span className="text-slate-600 text-sm">Hourly rate</span>
-                  <span className="font-bold text-slate-900 text-sm">
-                    $125–$150/hr
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-200">
-                  <span className="text-slate-600 text-sm">
-                    Remote support session
-                  </span>
-                  <span className="font-bold text-slate-900 text-sm">
-                    Hourly, min 30 min
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-200">
-                  <span className="text-slate-600 text-sm">Device setup</span>
-                  <span className="font-bold text-slate-900 text-sm">
-                    Fixed quote
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="bg-sky-500 rounded-2xl p-8 text-white">
-              <h3 className="text-xl font-extrabold mb-3">
-                Need help right now?
-              </h3>
-              <p className="text-sky-100 text-sm mb-6">
-                If your issue can be handled remotely, we can often help the
-                same day. Use the Remote Support page to download Splashtop and
-                connect instantly.
-              </p>
-              <div className="flex flex-col gap-3">
-                <Link
-                  href="/remote-support"
-                  className="bg-white text-sky-600 font-bold px-6 py-3 rounded text-center hover:bg-sky-50 transition-colors text-sm"
-                >
-                  Remote Support
-                </Link>
-                <Link
-                  href="/contact"
-                  className="bg-sky-600 text-white font-semibold px-6 py-3 rounded text-center hover:bg-sky-700 transition-colors text-sm border border-sky-400"
-                >
-                  Schedule a Visit
-                </Link>
-              </div>
-            </div>
+      <section className="bg-sky-500 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-xl font-extrabold text-white mb-1">
+              Need help right now?
+            </h2>
+            <p className="text-sky-100 text-sm">
+              Remote or on-site — we&apos;ll get you sorted, usually same day.
+            </p>
+          </div>
+          <div className="flex gap-4 flex-shrink-0">
+            <Link
+              href="/remote-support"
+              className="bg-white text-sky-600 font-bold px-6 py-3 rounded hover:bg-sky-50 transition-colors text-sm"
+            >
+              Remote Support
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-sky-600 border border-sky-400 text-white font-semibold px-6 py-3 rounded hover:bg-sky-700 transition-colors text-sm"
+            >
+              Schedule a Visit
+            </Link>
           </div>
         </div>
       </section>
