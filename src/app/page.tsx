@@ -166,8 +166,8 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/logo.png" alt="Double Click Computing" className="h-14 w-14 object-contain" />
                 <div>
-                  <p className="text-slate-900 font-extrabold text-xl leading-tight">Double Click Computing</p>
-                  <p className="text-slate-500 text-sm">Trusted IT — New Jersey Since 1987</p>
+                  <p className="text-slate-900 font-extrabold text-3xl leading-tight">Double Click Computing</p>
+                  <p className="text-slate-500 text-base">Trusted IT — New Jersey Since 1987</p>
                 </div>
               </div>
               <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
