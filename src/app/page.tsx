@@ -339,6 +339,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Parallax 1 */}
+      <div
+        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-slate-900/70" />
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+            Proactive monitoring. Instant response.
+          </p>
+          <p className="text-slate-300 text-base sm:text-lg">
+            Technology problems solved before you even know they exist.
+          </p>
+        </div>
+      </div>
+
       {/* Why Double Click */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -408,6 +424,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Parallax 2 */}
+      <div
+        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-slate-900/70" />
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+            Enterprise tools. Local expertise. Personal service.
+          </p>
+          <p className="text-slate-300 text-base sm:text-lg">
+            The security and reliability of a large IT firm — with someone who actually picks up the phone.
+          </p>
+        </div>
+      </div>
+
       {/* Testimonials */}
       <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -473,6 +505,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Parallax 3 */}
+      <div
+        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1920&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-slate-900/70" />
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+            Right around the corner. Ready when you need us.
+          </p>
+          <p className="text-slate-300 text-base sm:text-lg">
+            On-site support across 13 NJ counties — and remote help anywhere in the country.
+          </p>
+        </div>
+      </div>
 
       {/* Service Area */}
       <section className="py-20 bg-white">
