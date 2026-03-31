@@ -356,7 +356,7 @@ export default function Home() {
                 key={logo.alt}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
               />
             ))}
           </div>
