@@ -79,13 +79,14 @@ export default function Header() {
               title="Remote Support"
               className="relative flex items-center justify-center group"
             >
-              {/* Outer ping ring */}
-              <span className="absolute w-10 h-10 rounded-xl bg-green-500 opacity-20 animate-ping" />
+              {/* Dual staggered ping rings for stronger pulse */}
+              <span className="absolute w-11 h-11 rounded-xl bg-orange-500 opacity-25 animate-ping" />
+              <span className="absolute w-11 h-11 rounded-xl bg-orange-500 opacity-20 animate-ping" style={{ animationDelay: "0.4s" }} />
               {/* Icon button */}
               <span className={`relative flex items-center justify-center w-9 h-9 rounded-xl border transition-colors ${
                 pathname === "/remote-support"
-                  ? "bg-green-500/20 border-green-500 text-green-400"
-                  : "bg-slate-800 border-green-600/60 text-green-400 group-hover:bg-green-500/20 group-hover:border-green-400"
+                  ? "bg-orange-500/30 border-orange-400 text-orange-300"
+                  : "bg-slate-800 border-orange-500/70 text-orange-400 group-hover:bg-orange-500/20 group-hover:border-orange-400"
               }`}>
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
