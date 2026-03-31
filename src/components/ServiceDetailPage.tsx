@@ -43,22 +43,22 @@ export default function ServiceDetailPage({
   return (
     <>
       {/* Header */}
-      <section className="bg-slate-950 py-16">
+      <section className="bg-blue-50 border-b border-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
-            <Link href="/services" className="hover:text-slate-300 transition-colors">
+          <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
+            <Link href="/services" className="hover:text-blue-600 transition-colors">
               Services
             </Link>
             <span>/</span>
-            <Link href={breadcrumbHref} className="hover:text-slate-300 transition-colors">
+            <Link href={breadcrumbHref} className="hover:text-blue-600 transition-colors">
               {breadcrumb}
             </Link>
           </div>
-          <div className={`${accent} text-xs font-semibold uppercase tracking-widest mb-3`}>
+          <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
             {tag}
           </div>
-          <h1 className="text-4xl font-extrabold text-white mb-4">{title}</h1>
-          <p className="text-slate-300 text-lg max-w-2xl">{description}</p>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">{title}</h1>
+          <p className="text-slate-600 text-lg max-w-2xl">{description}</p>
         </div>
       </section>
 

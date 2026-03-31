@@ -11,12 +11,12 @@ export default function About() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-slate-950 py-16">
+      <section className="bg-blue-50 border-b border-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold text-white mb-4">
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">
             About Double Click Computing
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl">
+          <p className="text-slate-600 text-lg max-w-2xl">
             38 years of hands-on IT experience serving New Jersey. One expert.
             Real accountability.
           </p>

@@ -111,15 +111,15 @@ const services = [
 export default function BusinessServices() {
   return (
     <>
-      <section className="bg-slate-950 py-16">
+      <section className="bg-blue-50 border-b border-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
             Services
           </div>
-          <h1 className="text-4xl font-extrabold text-white mb-4">
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">
             Business IT Services
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl">
+          <p className="text-slate-600 text-lg max-w-2xl">
             Proactive, reliable IT management for small and mid-sized NJ
             businesses. From endpoint security to on-site support — we handle
             the tech so you can focus on your business.

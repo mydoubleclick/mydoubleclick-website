@@ -30,15 +30,15 @@ const steps = [
 export default function RemoteSupport() {
   return (
     <>
-      <section className="bg-slate-950 py-16">
+      <section className="bg-blue-50 border-b border-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
             Fast Help
           </div>
-          <h1 className="text-4xl font-extrabold text-white mb-4">
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">
             Remote Support
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl">
+          <p className="text-slate-600 text-lg max-w-2xl">
             No truck roll needed. We can connect to your computer in minutes and
             fix most issues remotely — safely and securely.
           </p>

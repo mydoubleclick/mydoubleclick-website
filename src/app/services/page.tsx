@@ -47,10 +47,10 @@ const categories = [
 export default function Services() {
   return (
     <>
-      <section className="bg-slate-950 py-16">
+      <section className="bg-blue-50 border-b border-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold text-white mb-4">Services</h1>
-          <p className="text-slate-300 text-lg max-w-2xl">
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Services</h1>
+          <p className="text-slate-600 text-lg max-w-2xl">
             Whether you run a business or just need your home computer working
             again, we have the right level of support for you.
           </p>
