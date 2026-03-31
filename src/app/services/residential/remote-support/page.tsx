@@ -35,6 +35,7 @@ export default function ResidentialRemoteSupport() {
           "Hardware failures require an on-site visit.",
           "We can often help the same day, sometimes within the hour.",
         ]}
+        heroImage="https://source.unsplash.com/1400x700/?remote,laptop,support"
       />
       <section className="bg-white border-t border-slate-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

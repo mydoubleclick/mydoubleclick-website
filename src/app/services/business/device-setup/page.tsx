@@ -34,6 +34,7 @@ export default function DeviceSetup() {
         "Old hardware responsibly recycled or wiped and repurposed.",
         "We also handle device replacement programs for aging fleets.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?laptop,computer,workspace"
     />
   );
 }

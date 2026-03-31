@@ -34,6 +34,7 @@ export default function SecuritySetup() {
         "We explain everything in plain English — no jargon.",
         "Good for the whole family — we can set up parental controls too.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?security,password,privacy"
     />
   );
 }

@@ -33,6 +33,7 @@ export default function RemoteMonitoring() {
         "Agents are lightweight and don't impact system performance.",
         "All remote sessions are logged and auditable.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?monitoring,dashboard,screens"
     />
   );
 }

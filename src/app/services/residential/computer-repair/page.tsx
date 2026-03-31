@@ -33,6 +33,7 @@ export default function ComputerRepair() {
         "Many software issues can be resolved remotely — faster and cheaper.",
         "We support both Windows and Mac computers.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?laptop,repair,technology"
     />
   );
 }

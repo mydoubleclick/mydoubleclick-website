@@ -33,6 +33,7 @@ export default function DataBackup() {
         "Cloud backup + local drive = the safest combination.",
         "We can recover data from failed drives in many cases — reach out before writing off a drive.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?data,storage,hard+drive"
     />
   );
 }

@@ -100,6 +100,59 @@ const whyUs = [
   },
 ];
 
+const counties = [
+  "Essex", "Morris", "Bergen", "Sussex", "Warren",
+  "Passaic", "Hudson", "Hunterdon", "Somerset", "Union",
+  "Middlesex", "Mercer", "Monmouth",
+];
+
+const industries = [
+  "Medical & Dental Practices",
+  "Financial Firms",
+  "Legal Firms",
+  "Government & Municipalities",
+  "Manufacturing & Light Industry",
+  "Education Providers",
+  "Architecture & Design",
+  "Restaurant & Hospitality",
+  "Home Offices & Residential",
+];
+
+const faqs = [
+  {
+    q: "How quickly do you respond to support requests?",
+    a: "Same day — usually within a few hours during business hours. For urgent issues, call or text Jason directly and he'll get back to you fast.",
+  },
+  {
+    q: "Do you work with both Windows and Mac?",
+    a: "Yes. We support Windows 10/11, macOS, and mixed environments. Whether your office is all-PC, all-Mac, or a mix, we've got you covered.",
+  },
+  {
+    q: "What's the difference between remote and on-site support?",
+    a: "Remote support lets us connect to your computer over the internet and fix most software issues in minutes — no waiting for a visit. On-site support means Jason comes to you for hardware issues, installations, cabling, or anything that can't be done remotely.",
+  },
+  {
+    q: "Do you require long-term contracts?",
+    a: "No. We don't lock you into long-term contracts. Most business clients are on month-to-month arrangements. We earn your business every month.",
+  },
+  {
+    q: "Is it safe to let someone access my computer remotely?",
+    a: "Yes. We use Splashtop SOS — you share a session code (so we can only connect when you invite us), you can watch everything we do in real time, and you can end the session instantly by closing the app.",
+  },
+  {
+    q: "How is this different from taking my computer to a big box store?",
+    a: "We come to you, we know your specific setup, and you talk to the same person every time. No ticket numbers, no drop-offs, no \"it might take a week.\" Just direct access to a local expert who treats your problem like it matters.",
+  },
+  {
+    q: "Can you help if I'm not sure what's wrong?",
+    a: "Absolutely. Just describe what's happening — slow, crashing, weird noises, won't connect — and we'll diagnose from there. You don't need to know the technical answer before you call.",
+  },
+  {
+    q: "What does managed IT actually include for businesses?",
+    a: "Ongoing monitoring of your systems, patch management, help desk support for your staff, vendor coordination, user account management, and proactive planning. Think of it as having an IT department without hiring one.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -144,13 +197,20 @@ export default function Home() {
                 >
                   Get a Free IT Assessment
                 </Link>
+                {/* TODO: Replace /contact with your Acuity booking URL once available */}
                 <Link
-                  href="/remote-support"
+                  href="/contact"
                   className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base px-8 py-4 rounded text-center transition-colors"
                 >
-                  Remote Support
+                  Book an Appointment
                 </Link>
               </div>
+              <p className="text-slate-400 text-sm mt-5">
+                Or call us:{" "}
+                <a href="tel:+18889254259" className="text-blue-600 font-semibold hover:underline">
+                  (888) 9-CLICK-9
+                </a>
+              </p>
             </div>
 
             {/* Right: tech illustration */}
@@ -354,6 +414,153 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Satisfaction Guarantee */}
+      <section className="py-16 bg-blue-600">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-shrink-0">
+              <div className="w-24 h-24 bg-white bg-opacity-10 rounded-full flex items-center justify-center border-2 border-white border-opacity-30">
+                <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <div className="text-blue-200 text-xs font-semibold uppercase tracking-widest mb-2">
+                Our Promise
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                100% Satisfaction Guarantee
+              </h2>
+              <p className="text-blue-100 text-lg leading-relaxed max-w-2xl">
+                If you&apos;re not completely satisfied with the work, we make it right —
+                no arguments, no runaround. That&apos;s been our commitment to every client
+                for 38 years, and it&apos;s not changing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Area */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
+                Where We Serve
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+                Right Around the Corner
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                On-site service across 13 New Jersey counties — plus remote
+                support available statewide and anywhere in the country.
+              </p>
+
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">
+                On-Site Service Counties
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {counties.map((county) => (
+                  <span
+                    key={county}
+                    className="bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-full"
+                  >
+                    {county}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl p-5">
+                <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <div className="font-semibold text-slate-900 text-sm mb-0.5">Remote Support Available Everywhere</div>
+                  <div className="text-slate-500 text-sm">
+                    Not in our on-site area? We provide remote support across all of New Jersey and throughout the United States.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-5">
+                Industries We Serve
+              </h3>
+              <ul className="space-y-3">
+                {industries.map((industry) => (
+                  <li key={industry} className="flex items-center gap-3 text-slate-700 text-sm">
+                    <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {industry}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-5">
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  <span className="font-semibold text-slate-900">Don&apos;t see your industry?</span>{" "}
+                  We&apos;ve worked with clients across virtually every type of small business.
+                  If you have computers and need them working reliably, we can help.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
+              FAQ
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+              Common Questions
+            </h2>
+            <p className="text-slate-500 text-lg">
+              Answers to what most clients ask before getting started.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <div
+                key={faq.q}
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-200 transition-colors"
+              >
+                <h3 className="font-bold text-slate-900 mb-2 flex items-start gap-3">
+                  <span className="w-5 h-5 bg-blue-600 text-white text-xs font-extrabold rounded flex items-center justify-center flex-shrink-0 mt-0.5">?</span>
+                  {faq.q}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed pl-8">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <p className="text-slate-500 text-sm mb-4">
+              Have a question that&apos;s not answered here?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded transition-colors text-sm"
+            >
+              Ask Us Directly
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

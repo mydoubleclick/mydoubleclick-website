@@ -33,6 +33,7 @@ export default function CloudBackup() {
         "Recovery can be done via download or shipped hard drive for large restores.",
         "Works alongside on-site backup for a complete 3-2-1 backup strategy.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?cloud,data,backup"
     />
   );
 }

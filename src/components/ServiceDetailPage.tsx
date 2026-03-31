@@ -21,6 +21,10 @@ interface ServiceDetailPageProps {
   steps?: Step[];
   notes?: string[];
   accentColor?: "blue" | "sky";
+  /** Optional Unsplash or other image URL shown in the header right panel */
+  heroImage?: string;
+  /** Alt text for the hero image */
+  heroImageAlt?: string;
 }
 
 export default function ServiceDetailPage({
@@ -33,8 +37,9 @@ export default function ServiceDetailPage({
   steps,
   notes,
   accentColor = "blue",
+  heroImage,
+  heroImageAlt,
 }: ServiceDetailPageProps) {
-  const accent = accentColor === "sky" ? "text-sky-400" : "text-sky-400";
   const ctaBg = accentColor === "sky" ? "bg-sky-500" : "bg-blue-600";
   const ctaHover = accentColor === "sky" ? "hover:bg-sky-600" : "hover:bg-blue-700";
   const dotColor = accentColor === "sky" ? "bg-sky-500" : "bg-blue-600";
@@ -43,8 +48,32 @@ export default function ServiceDetailPage({
   return (
     <>
       {/* Header */}
-      <section className="bg-blue-50 border-b border-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden">
+        {/* Decorative right panel — image or dot-grid */}
+        {heroImage ? (
+          <div className="absolute right-0 top-0 w-2/5 h-full hidden lg:block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={heroImage}
+              alt={heroImageAlt ?? title}
+              className="w-full h-full object-cover opacity-25"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/60 to-transparent" />
+          </div>
+        ) : (
+          <>
+            <div className="absolute right-0 top-0 w-2/5 h-full bg-blue-100 hidden lg:block opacity-50" />
+            <div
+              className="absolute right-0 top-0 w-2/5 h-full hidden lg:block opacity-20"
+              style={{
+                backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+          </>
+        )}
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
             <Link href="/services" className="hover:text-blue-600 transition-colors">
               Services
@@ -57,7 +86,7 @@ export default function ServiceDetailPage({
           <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
             {tag}
           </div>
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">{title}</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4 max-w-2xl">{title}</h1>
           <p className="text-slate-600 text-lg max-w-2xl">{description}</p>
         </div>
       </section>

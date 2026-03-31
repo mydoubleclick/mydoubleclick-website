@@ -34,6 +34,7 @@ export default function HomeOffice() {
         "We can recommend and source the right equipment for your home office.",
         "Video call setups can make a significant difference in how you're perceived professionally.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?home+office,workspace,desk"
     />
   );
 }

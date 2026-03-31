@@ -34,6 +34,7 @@ export default function VirusRemoval() {
         "We can often work remotely if the computer is still functional.",
         "We'll tell you honestly if it's faster to reinstall Windows than to clean the infection.",
       ]}
+      heroImage="https://source.unsplash.com/1400x700/?cybersecurity,protection,antivirus"
     />
   );
 }
