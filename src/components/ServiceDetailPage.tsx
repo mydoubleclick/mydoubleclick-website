@@ -48,30 +48,40 @@ export default function ServiceDetailPage({
   return (
     <>
       {/* Header */}
-      <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden">
-        {/* Background image (full-bleed, subtle overlay) */}
-        {heroImage && (
+      <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden min-h-[220px]">
+        {/* Right-panel image (desktop only) */}
+        {heroImage ? (
           <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={heroImage}
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ opacity: 0.18 }}
+            <div className="absolute right-0 top-0 w-5/12 h-full hidden lg:block overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage}
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover"
+              />
+              {/* Left-edge fade so image blends into blue-50 background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/30 to-transparent" />
+            </div>
+            {/* Dot grid over image for texture */}
+            <div
+              className="absolute right-0 top-0 w-5/12 h-full hidden lg:block opacity-10 pointer-events-none"
+              style={{
+                backgroundImage: "radial-gradient(circle, #1e3a5f 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/85 to-blue-50/60" />
           </>
+        ) : (
+          /* No image — just the dot grid */
+          <div
+            className="absolute right-0 top-0 w-2/5 h-full opacity-20"
+            style={{
+              backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
         )}
-
-        {/* Dot-grid decoration (always shown) */}
-        <div
-          className="absolute right-0 top-0 w-2/5 h-full opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
