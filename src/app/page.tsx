@@ -162,7 +162,14 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: text */}
             <div>
-              <p className="text-blue-600 font-bold text-sm uppercase tracking-widest mb-3">Double Click Computing</p>
+              <div className="flex items-center gap-3 mb-5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/logo.png" alt="Double Click Computing" className="h-14 w-14 object-contain" />
+                <div>
+                  <p className="text-slate-900 font-extrabold text-xl leading-tight">Double Click Computing</p>
+                  <p className="text-slate-500 text-sm">Trusted IT — New Jersey Since 1987</p>
+                </div>
+              </div>
               <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                 New Jersey IT Services — Est. 1987
