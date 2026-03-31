@@ -346,7 +346,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
             {[
               { src: "/images/apple-logo.png", alt: "Apple" },
-              { src: "/images/microsoft-logo.jpg", alt: "Microsoft" },
+              { src: "/images/microsoft-logo.png", alt: "Microsoft" },
               { src: "/images/bitdefender-logo.png", alt: "Bitdefender" },
               { src: "/images/fortinet-logo.png", alt: "Fortinet" },
               { src: "/images/backblaze-logo.jpeg", alt: "Backblaze" },
