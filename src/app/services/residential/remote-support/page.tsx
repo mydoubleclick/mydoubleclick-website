@@ -35,7 +35,7 @@ export default function ResidentialRemoteSupport() {
           "Hardware failures require an on-site visit.",
           "We can often help the same day, sometimes within the hour.",
         ]}
-        heroImage="https://images.unsplash.com/photo-1560732488-6b0df240254a?w=1400&q=80"
+        heroImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=80"
       />
       <section className="bg-white border-t border-slate-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
