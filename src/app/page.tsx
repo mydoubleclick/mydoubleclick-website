@@ -349,14 +349,14 @@ export default function Home() {
               { src: "/images/microsoft-logo.png", alt: "Microsoft" },
               { src: "/images/bitdefender-logo.svg", alt: "Bitdefender" },
               { src: "/images/fortinet-logo.svg", alt: "Fortinet" },
-              { src: "/images/backblaze-logo.jpeg", alt: "Backblaze" },
+              { src: "/images/backblaze-logo.jpeg", alt: "Backblaze", tall: true },
             ].map((logo) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={logo.alt}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
+                className={`${logo.tall ? "h-11" : "h-8"} w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300`}
               />
             ))}
           </div>
