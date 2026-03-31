@@ -168,6 +168,32 @@ export default function About() {
         </div>
       </section>
 
+      {/* Technology Partners */}
+      <section className="py-14 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-10">
+            Technology Partners & Platforms We Work With
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
+            {[
+              { src: "/images/apple-logo.png", alt: "Apple" },
+              { src: "/images/microsoft-logo.jpg", alt: "Microsoft" },
+              { src: "/images/bitdefender-logo.png", alt: "Bitdefender" },
+              { src: "/images/fortinet-logo.png", alt: "Fortinet" },
+              { src: "/images/backblaze-logo.jpeg", alt: "Backblaze" },
+            ].map((logo) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={logo.alt}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Service Area */}
       <section className="py-16 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
