@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function ManagedIT() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="Managed IT & Help Desk"
       description="Your entire IT environment — monitored, maintained, and supported by one expert who knows your setup. One number to call when anything goes wrong."
       includes={[

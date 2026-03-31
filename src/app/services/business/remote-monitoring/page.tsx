@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function RemoteMonitoring() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="Remote Monitoring & Management"
       description="We use Atera RMM to keep a constant eye on your systems — catching problems before they cause downtime. Think of it as a silent IT technician watching your network around the clock."
       includes={[

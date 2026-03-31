@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function DeviceSetup() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="Device Procurement & Setup"
       description="New computer for a new hire? Replacing aging hardware? We handle the entire process — sourcing, configuring, and deploying Windows and Mac workstations so they're ready to use from the moment they land on a desk."
       includes={[

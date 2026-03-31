@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function EndpointSecurity() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="Endpoint Security"
       description="Enterprise-grade protection for every computer in your business. Powered by Bitdefender GravityZone — the same platform used by large enterprises, scaled for small businesses."
       includes={[

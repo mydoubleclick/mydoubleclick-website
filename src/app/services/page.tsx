@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const categories = [
   {
     href: "/services/business",
-    title: "Business IT Services",
+    title: "Managed IT Services",
     description:
       "Comprehensive managed IT for small and mid-sized businesses. Everything from firewalls and endpoint security to on-site support and device deployment.",
     items: [
@@ -22,7 +22,7 @@ const categories = [
       "Device Setup & Deployment",
       "MDM & Mobile Devices",
     ],
-    cta: "Business IT Details",
+    cta: "Managed IT Services Details",
     bg: "bg-blue-600",
   },
   {

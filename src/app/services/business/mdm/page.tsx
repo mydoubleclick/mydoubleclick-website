@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function MDM() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="MDM & Mobile Device Management"
       description="Your staff uses iPhones, iPads, and laptops that carry sensitive company data. MDM lets you manage, secure, and wipe those devices remotely — whether someone loses a phone or leaves the company."
       includes={[

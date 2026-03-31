@@ -240,7 +240,7 @@ export default function Contact() {
                     className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
                   >
                     <option value="">Select a category</option>
-                    <option value="business">Business IT Support</option>
+                    <option value="business">Managed IT Services</option>
                     <option value="residential">Home / Residential</option>
                     <option value="network">Network / Firewall</option>
                     <option value="security">Security / Virus</option>

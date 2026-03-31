@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function FirewallNetworking() {
   return (
     <ServiceDetailPage
-      breadcrumb="Business IT"
+      breadcrumb="Managed IT Services"
       breadcrumbHref="/services/business"
-      tag="Business IT Services"
+      tag="Managed IT Services"
       title="Firewall & Network Security"
       description="A properly configured firewall is the foundation of business network security. We install, configure, and manage Fortinet FortiGate firewalls — enterprise-grade protection sized right for small businesses."
       includes={[
