@@ -104,66 +104,129 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-slate-950 relative overflow-hidden">
-        {/* Background grid effect */}
+      <section className="bg-white relative overflow-hidden border-b border-slate-200">
+        {/* Light blue right panel */}
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-blue-50 hidden lg:block" />
+        {/* Subtle dot grid on right */}
         <div
-          className="absolute inset-0 opacity-5"
+          className="absolute right-0 top-0 w-1/2 h-full hidden lg:block opacity-40"
           style={{
-            backgroundImage:
-              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
           }}
         />
-        {/* Blue glow */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600 opacity-5 blur-3xl rounded-full translate-x-1/2" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-blue-600 bg-opacity-10 border border-blue-600 border-opacity-20 text-sky-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 bg-sky-400 rounded-full" />
-              New Jersey IT Services — Est. 1987
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: text */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                New Jersey IT Services — Est. 1987
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
+                Technology that{" "}
+                <span className="text-blue-600">works.</span>
+                <br />
+                Support you can{" "}
+                <span className="text-blue-600">count on.</span>
+              </h1>
+              <p className="text-slate-600 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
+                Double Click Computing has been the trusted IT partner for New
+                Jersey businesses and homeowners for over 38 years. Managed IT,
+                cybersecurity, networking, and friendly on-site support — done
+                right.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded text-center transition-colors"
+                >
+                  Get a Free IT Assessment
+                </Link>
+                <Link
+                  href="/remote-support"
+                  className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base px-8 py-4 rounded text-center transition-colors"
+                >
+                  Remote Support
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
-              Technology that{" "}
-              <span className="text-sky-400">works.</span>
-              <br />
-              Support you can{" "}
-              <span className="text-sky-400">count on.</span>
-            </h1>
-            <p className="text-slate-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
-              Double Click Computing has been the trusted IT partner for New
-              Jersey businesses and homeowners for over 38 years. Managed IT,
-              cybersecurity, networking, and friendly on-site support — done
-              right.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded text-center transition-colors"
-              >
-                Get a Free IT Assessment
-              </Link>
-              <Link
-                href="/remote-support"
-                className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-base px-8 py-4 rounded text-center transition-colors"
-              >
-                Remote Support
-              </Link>
+
+            {/* Right: tech illustration */}
+            <div className="hidden lg:flex justify-center items-center py-8">
+              <svg viewBox="0 0 420 380" className="w-full max-w-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Connection lines */}
+                <line x1="210" y1="190" x2="100" y2="90" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="210" y1="190" x2="320" y2="90" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="210" y1="190" x2="60" y2="220" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="210" y1="190" x2="360" y2="220" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="210" y1="190" x2="130" y2="310" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="210" y1="190" x2="290" y2="310" stroke="#BFDBFE" strokeWidth="2" />
+                <line x1="100" y1="90" x2="320" y2="90" stroke="#DBEAFE" strokeWidth="1.5" strokeDasharray="6 4" />
+                <line x1="60" y1="220" x2="130" y2="310" stroke="#DBEAFE" strokeWidth="1.5" strokeDasharray="6 4" />
+                <line x1="360" y1="220" x2="290" y2="310" stroke="#DBEAFE" strokeWidth="1.5" strokeDasharray="6 4" />
+
+                {/* Outer nodes */}
+                <circle cx="100" cy="90" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="320" cy="90" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="60" cy="220" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="360" cy="220" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="130" cy="310" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="290" cy="310" r="28" fill="white" stroke="#BFDBFE" strokeWidth="2" />
+
+                {/* Node icons — monitor */}
+                <rect x="86" y="78" width="28" height="18" rx="2" fill="#2563EB" opacity="0.15" />
+                <rect x="88" y="80" width="24" height="14" rx="1" fill="#2563EB" opacity="0.6" />
+                <rect x="93" y="94" width="14" height="2" rx="1" fill="#2563EB" opacity="0.4" />
+
+                {/* Node icons — shield */}
+                <path d="M320 76 L332 81 L332 91 C332 97 326 101 320 103 C314 101 308 97 308 91 L308 81 Z" fill="#2563EB" fillOpacity="0.15" stroke="#2563EB" strokeWidth="1.5" strokeOpacity="0.5" />
+                <path d="M316 90 L319 93 L324 87" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+
+                {/* Node icons — wifi */}
+                <path d="M60 214 Q60 208 68 208 Q76 208 76 214" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+                <path d="M55 210 Q55 200 68 200 Q81 200 81 210" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.3" />
+                <circle cx="68" cy="217" r="2.5" fill="#2563EB" opacity="0.7" />
+
+                {/* Node icons — cloud */}
+                <path d="M348 218 Q344 212 350 210 Q352 204 360 206 Q366 202 370 208 Q376 208 374 216 Z" fill="#2563EB" opacity="0.2" stroke="#2563EB" strokeWidth="1.5" strokeLinejoin="round" />
+
+                {/* Node icons — lock */}
+                <rect x="122" y="303" width="16" height="12" rx="2" fill="#2563EB" opacity="0.2" />
+                <path d="M125 303 L125 300 Q130 295 135 300 L135 303" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                <circle cx="130" cy="309" r="1.5" fill="#2563EB" opacity="0.7" />
+
+                {/* Node icons — phone */}
+                <rect x="283" y="301" width="14" height="20" rx="3" fill="#2563EB" opacity="0.15" stroke="#2563EB" strokeWidth="1.5" />
+                <circle cx="290" cy="316" r="1.5" fill="#2563EB" opacity="0.5" />
+
+                {/* Center: main node */}
+                <circle cx="210" cy="190" r="52" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="2" />
+                <circle cx="210" cy="190" r="42" fill="#DBEAFE" />
+                {/* Shield in center */}
+                <path d="M210 162 L228 170 L228 188 C228 200 220 208 210 212 C200 208 192 200 192 188 L192 170 Z" fill="#2563EB" opacity="0.9" />
+                <path d="M204 190 L208 194 L217 184" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+
+                {/* Pulse rings */}
+                <circle cx="210" cy="190" r="62" stroke="#BFDBFE" strokeWidth="1" opacity="0.5" />
+                <circle cx="210" cy="190" r="74" stroke="#DBEAFE" strokeWidth="1" opacity="0.3" />
+              </svg>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats bar */}
-      <section className="bg-slate-900 border-y border-slate-800">
+      <section className="bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-800">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-blue-500">
             {stats.map((stat) => (
               <div key={stat.label} className="py-8 px-6 text-center">
                 <div className="text-3xl font-extrabold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-slate-400 text-sm font-medium">
+                <div className="text-blue-100 text-sm font-medium">
                   {stat.label}
                 </div>
               </div>
