@@ -453,10 +453,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-slate-900/70" />
         <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
           <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
-            Right around the corner. Ready when you need us.
+            Focus on your business. We&apos;ll handle the tech.
           </p>
           <p className="text-slate-300 text-base sm:text-lg">
-            On-site support across 13 NJ counties — and remote help anywhere in the country.
+            One call. One expert. Everything IT — taken care of.
           </p>
         </div>
       </div>
