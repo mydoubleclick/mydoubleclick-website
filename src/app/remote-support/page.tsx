@@ -11,13 +11,13 @@ const steps = [
     step: "1",
     title: "Download Splashtop SOS",
     description:
-      "Click the button below to download the Splashtop SOS app for your Windows PC or Mac. No install required — it runs directly.",
+      "Click the Download button below. It automatically detects your operating system and downloads the right version for your Windows PC or Mac.",
   },
   {
     step: "2",
     title: "Open the App & Share Your Code",
     description:
-      'Open the downloaded app. You\'ll see a 9-digit session code. Call or text that code to Jason and tell him what the issue is.',
+      "Open the downloaded app. You'll see a 9-digit session code. Call or text that code to Jason and tell him what the issue is.",
   },
   {
     step: "3",
@@ -79,14 +79,41 @@ export default function RemoteSupport() {
               Works on Windows 10/11 and macOS. No account needed. The app
               closes when you do — nothing is left running on your computer.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            {/* Primary auto-detect download */}
+            <a
+              href="https://my.splashtop.com/sos/packages/download/RP3ZZLH53LPJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold px-10 py-4 rounded-lg transition-colors text-lg mb-6"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Now
+            </a>
+
+            <p className="text-slate-500 text-xs mb-8">
+              Automatically detects your operating system (Windows or Mac)
+            </p>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 max-w-sm mx-auto mb-6">
+              <div className="flex-1 h-px bg-slate-700" />
+              <span className="text-slate-600 text-xs uppercase tracking-widest">or choose manually</span>
+              <div className="flex-1 h-px bg-slate-700" />
+            </div>
+
+            {/* Per-OS buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="https://my.splashtop.com/sos/download?platform=windows"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded transition-colors"
+                className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M0 0h11.5v11.5H0zm12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zm12.5 0H24V24H12.5z" />
                 </svg>
                 Download for Windows
@@ -95,14 +122,15 @@ export default function RemoteSupport() {
                 href="https://my.splashtop.com/sos/download?platform=mac"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-bold px-8 py-4 rounded transition-colors"
+                className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z" />
                 </svg>
                 Download for Mac
               </a>
             </div>
+
             <p className="text-slate-500 text-xs mt-6">
               After downloading, call or text Jason:{" "}
               <a
