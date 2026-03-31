@@ -49,29 +49,29 @@ export default function ServiceDetailPage({
     <>
       {/* Header */}
       <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden">
-        {/* Decorative right panel — image or dot-grid */}
-        {heroImage ? (
-          <div className="absolute right-0 top-0 w-2/5 h-full hidden lg:block">
+        {/* Background image (full-bleed, subtle overlay) */}
+        {heroImage && (
+          <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={heroImage}
-              alt={heroImageAlt ?? title}
-              className="w-full h-full object-cover opacity-25"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ opacity: 0.18 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/60 to-transparent" />
-          </div>
-        ) : (
-          <>
-            <div className="absolute right-0 top-0 w-2/5 h-full bg-blue-100 hidden lg:block opacity-50" />
-            <div
-              className="absolute right-0 top-0 w-2/5 h-full hidden lg:block opacity-20"
-              style={{
-                backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/85 to-blue-50/60" />
           </>
         )}
+
+        {/* Dot-grid decoration (always shown) */}
+        <div
+          className="absolute right-0 top-0 w-2/5 h-full opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">

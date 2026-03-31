@@ -34,7 +34,7 @@ export default function NewDeviceSetup() {
         "Old device responsibly wiped if you're donating or trading it in.",
         "Remote setup available for some devices — ask us.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?laptop,unboxing,new"
+      heroImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1400&q=80"
     />
   );
 }

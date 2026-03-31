@@ -33,7 +33,7 @@ export default function FirewallNetworking() {
         "We support both wired and wireless network design.",
         "VPN included — lets staff work securely from anywhere.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?network,server,infrastructure"
+      heroImage="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80"
     />
   );
 }

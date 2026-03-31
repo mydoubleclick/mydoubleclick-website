@@ -34,7 +34,7 @@ export default function HomeNetworking() {
         "We can recommend equipment or work with what you already have.",
         "Smart home devices (Alexa, Ring, Nest, etc.) connected and configured.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?wifi,router,home"
+      heroImage="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80"
     />
   );
 }

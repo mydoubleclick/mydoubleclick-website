@@ -33,7 +33,7 @@ export default function OnSiteSupport() {
         "Same-day response available for critical issues.",
         "Travel time is included in our standard rates — no hidden fees.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?office,technician,computer"
+      heroImage="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80"
     />
   );
 }

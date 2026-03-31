@@ -34,7 +34,7 @@ export default function MDM() {
         "Zero-touch deployment available for new devices.",
         "Critical for businesses in regulated industries (healthcare, legal, finance).",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?smartphone,mobile,devices"
+      heroImage="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1400&q=80"
     />
   );
 }

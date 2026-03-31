@@ -33,7 +33,7 @@ export default function ManagedIT() {
         "You get direct access to Jason — not a ticketing queue.",
         "No long-term contracts required.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?server,IT,helpdesk"
+      heroImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80"
     />
   );
 }

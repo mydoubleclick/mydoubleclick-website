@@ -32,7 +32,7 @@ export default function EndpointSecurity() {
         "Works on Windows and Mac.",
         "Does not slow down computers — Bitdefender is rated #1 for performance impact.",
       ]}
-      heroImage="https://source.unsplash.com/1400x700/?cybersecurity,security,shield"
+      heroImage="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80"
     />
   );
 }
