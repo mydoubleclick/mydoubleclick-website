@@ -1,0 +1,218 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  {
+    href: "/services",
+    label: "Services",
+    children: [
+      { href: "/services/business", label: "Business IT" },
+      { href: "/services/residential", label: "Residential & Home Office" },
+    ],
+  },
+  { href: "/remote-support", label: "Remote Support" },
+  { href: "/about", label: "About" },
+];
+
+export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const pathname = usePathname();
+
+  return (
+    <header className="bg-slate-950 sticky top-0 z-50 border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+            <div className="w-10 h-10 relative flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="Double Click Computing logo"
+                fill
+                className="object-contain drop-shadow-sm"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-white font-bold text-lg leading-tight tracking-tight">
+                Double Click
+              </span>
+              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
+                Computing
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) =>
+              link.children ? (
+                <div key={link.href} className="relative group">
+                  <button
+                    className={`px-3 py-2 text-sm font-medium rounded transition-colors flex items-center gap-1 ${
+                      pathname.startsWith("/services")
+                        ? "text-sky-400"
+                        : "text-slate-300 hover:text-white hover:bg-slate-800"
+                    }`}
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                  >
+                    {link.label}
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-1 w-52 bg-slate-900 border border-slate-700 rounded-lg shadow-xl overflow-hidden transition-all ${
+                      servicesOpen
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
+                    }`}
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                    pathname === link.href
+                      ? "text-sky-400"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
+
+          {/* CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="tel:+18889254259"
+              className="text-sm text-slate-300 hover:text-white transition-colors"
+            >
+              (888) 9-CLICK-9
+            </a>
+            <Link
+              href="/contact"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
+            >
+              Get in Touch
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-slate-300 hover:text-white p-2 rounded transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
+          <nav className="flex flex-col gap-1 pt-3">
+            {navLinks.map((link) =>
+              link.children ? (
+                <div key={link.href}>
+                  <div className="px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    {link.label}
+                  </div>
+                  {link.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="block px-6 py-2 text-sm text-slate-300 hover:text-white transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+            <Link
+              href="/contact"
+              className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded text-center transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              Get in Touch
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
