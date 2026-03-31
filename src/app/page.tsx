@@ -347,8 +347,8 @@ export default function Home() {
             {[
               { src: "/images/apple-logo.png", alt: "Apple" },
               { src: "/images/microsoft-logo.png", alt: "Microsoft" },
-              { src: "/images/bitdefender-logo.png", alt: "Bitdefender" },
-              { src: "/images/fortinet-logo.png", alt: "Fortinet" },
+              { src: "/images/bitdefender-logo.svg", alt: "Bitdefender" },
+              { src: "/images/fortinet-logo.svg", alt: "Fortinet" },
               { src: "/images/backblaze-logo.jpeg", alt: "Backblaze" },
             ].map((logo) => (
               // eslint-disable-next-line @next/next/no-img-element
