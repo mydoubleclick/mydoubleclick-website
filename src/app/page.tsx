@@ -207,7 +207,7 @@ export default function Home() {
             <div className="hidden lg:block relative rounded-2xl overflow-hidden min-h-[460px] shadow-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-Kz8nHVg_tGI?w=1200&q=85"
+                src="https://images.unsplash.com/photo-1560264418-c4445382edbc?w=1200&q=85"
                 alt="Professional business office with computers"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
