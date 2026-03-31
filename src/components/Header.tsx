@@ -7,21 +7,13 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  {
-    href: "/services",
-    label: "Services",
-    children: [
-      { href: "/services/business", label: "Business IT" },
-      { href: "/services/residential", label: "Residential & Home Office" },
-    ],
-  },
-  { href: "/remote-support", label: "Remote Support" },
+  { href: "/services/business", label: "Business IT" },
+  { href: "/services/residential", label: "Home & Residential" },
   { href: "/about", label: "About" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -51,72 +43,23 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div key={link.href} className="relative group">
-                  <button
-                    className={`px-3 py-2 text-sm font-medium rounded transition-colors flex items-center gap-1 ${
-                      pathname.startsWith("/services")
-                        ? "text-sky-400"
-                        : "text-slate-300 hover:text-white hover:bg-slate-800"
-                    }`}
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                  >
-                    {link.label}
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                  <div
-                    className={`absolute top-full left-0 mt-1 w-52 bg-slate-900 border border-slate-700 rounded-lg shadow-xl overflow-hidden transition-all ${
-                      servicesOpen
-                        ? "opacity-100 visible"
-                        : "opacity-0 invisible"
-                    }`}
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                  >
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
-                    pathname === link.href
-                      ? "text-sky-400"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href))
+                    ? "text-sky-400"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* CTA */}
+          {/* CTA area */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:+18889254259"
@@ -130,6 +73,21 @@ export default function Header() {
             >
               Get in Touch
             </Link>
+            {/* Remote Support icon button */}
+            <Link
+              href="/remote-support"
+              title="Remote Support"
+              className={`flex items-center justify-center w-9 h-9 rounded border transition-colors ${
+                pathname === "/remote-support"
+                  ? "border-sky-500 bg-sky-500/10 text-sky-400"
+                  : "border-slate-700 text-slate-400 hover:border-sky-500 hover:text-sky-400 hover:bg-sky-500/10"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -139,32 +97,12 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
@@ -175,34 +113,28 @@ export default function Header() {
       {mobileOpen && (
         <div className="md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
           <nav className="flex flex-col gap-1 pt-3">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div key={link.href}>
-                  <div className="px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    {link.label}
-                  </div>
-                  {link.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block px-6 py-2 text-sm text-slate-300 hover:text-white transition-colors"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`block px-3 py-2 text-sm rounded transition-colors ${
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href))
+                    ? "text-sky-400"
+                    : "text-slate-300 hover:text-white"
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/remote-support"
+              className="block px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded"
+              onClick={() => setMobileOpen(false)}
+            >
+              Remote Support
+            </Link>
             <Link
               href="/contact"
               className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded text-center transition-colors"
