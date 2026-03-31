@@ -108,7 +108,7 @@ export default function RemoteSupport() {
             {/* Per-OS buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://my.splashtop.com/sos/download?platform=windows"
+                href="https://my.splashtop.com/sos/packages/download/RP3ZZLH53LPJ#:~:text=Windows-,Download,-Mac%20Download"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
@@ -119,7 +119,7 @@ export default function RemoteSupport() {
                 Download for Windows
               </a>
               <a
-                href="https://my.splashtop.com/sos/download?platform=mac"
+                href="https://my.splashtop.com/sos/packages/download/RP3ZZLH53LPJ#:~:text=Mac-,Download,-Android%20Download"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
@@ -128,6 +128,17 @@ export default function RemoteSupport() {
                   <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z" />
                 </svg>
                 Download for Mac
+              </a>
+              <a
+                href="https://my.splashtop.com/sos/packages/download/RP3ZZLH53LPJ#:~:text=Android-,Download,-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.523 15.341a.926.926 0 01-.926.926H7.403a.926.926 0 01-.926-.926V8.66c0-.512.414-.926.926-.926h9.194c.512 0 .926.414.926.926v6.681zM7.245 5.303l-.9-1.559a.184.184 0 10-.32.184l.912 1.58A5.514 5.514 0 004 10h16a5.514 5.514 0 00-2.937-4.492l.912-1.58a.184.184 0 10-.32-.184l-.9 1.559A5.476 5.476 0 0012 4.5a5.476 5.476 0 00-4.755 2.803zM10 8a.5.5 0 110-1 .5.5 0 010 1zm4 0a.5.5 0 110-1 .5.5 0 010 1z" />
+                </svg>
+                Download for Android
               </a>
             </div>
 
