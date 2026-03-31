@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About | Double Click Computing",
   description:
-    "38 years of IT expertise serving New Jersey businesses and homeowners. Meet Jason Hubert and Double Click Computing.",
+    "38 years of IT expertise serving New Jersey businesses and homeowners. Meet the team behind Double Click Computing.",
 };
 
 export default function About() {
@@ -34,8 +34,8 @@ export default function About() {
             About Double Click Computing
           </h1>
           <p className="text-slate-600 text-lg max-w-2xl">
-            38 years of hands-on IT experience serving New Jersey. One expert.
-            Real accountability.
+            38 years of hands-on IT experience serving New Jersey. A dedicated
+            team. Real accountability.
           </p>
         </div>
       </section>
@@ -46,32 +46,36 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-3xl font-extrabold text-slate-900 mb-6">
-                The Story
+                Our Story
               </h2>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed">
                 <p>
                   Double Click Computing was founded by Jason Hubert in 1987 —
-                  back when the PC industry was still young. What started as a
-                  passion for solving technology problems has grown into a
-                  38-year career as one of New Jersey&apos;s most trusted IT
-                  service providers.
+                  back when the PC industry was still finding its footing. What
+                  started as a passion for solving technology problems has grown
+                  into nearly four decades of trusted IT service across New
+                  Jersey.
                 </p>
                 <p>
-                  For the last 16–17 years, Double Click has been Jason&apos;s
-                  full-time focus. He works directly with every client —
-                  there&apos;s no account manager between you and the person
-                  doing the work. If you call, Jason answers.
+                  Jason leads every client relationship personally. When you
+                  call, you reach him — not a help desk, not a ticketing system,
+                  not someone reading from a script. He knows your setup, your
+                  priorities, and your history, because he&apos;s been there for it.
                 </p>
                 <p>
-                  His client base ranges from small businesses and law firms to
-                  large corporations like Boll &amp; Branch, as well as
-                  homeowners and home office workers who need reliable, no-jargon
-                  support.
+                  Behind that relationship is a full ecosystem of certified
+                  technology partners, vendor specialists, and industry resources
+                  built over 38 years. Whether the challenge is a single
+                  workstation or a multi-site enterprise environment, we bring
+                  the depth and connections to handle it — with the
+                  responsiveness you&apos;d never get from a large IT firm.
                 </p>
                 <p>
-                  Jason&apos;s philosophy is simple: technology should work
-                  reliably, and when it doesn&apos;t, it should be fixed fast by
-                  someone you trust.
+                  Our clients range from solo home office workers and small
+                  businesses to mid-sized companies and large organizations with
+                  hundreds of employees. Every one of them gets the same
+                  commitment: technology that works, and support that actually
+                  shows up.
                 </p>
               </div>
             </div>
@@ -81,17 +85,17 @@ export default function About() {
                 {
                   year: "1987",
                   title: "Founded",
-                  desc: "Double Click Computing launched in New Jersey.",
+                  desc: "Double Click Computing launched in New Jersey with a simple mission: make technology work for the people using it.",
                 },
                 {
                   year: "2000s",
-                  title: "Full-Time Focus",
-                  desc: "Transitioned to full-time MSP, building a diverse client base of businesses and consumers.",
+                  title: "Full-Time MSP",
+                  desc: "Transitioned to a full-time managed services practice, expanding to serve a growing base of businesses and residential clients.",
                 },
                 {
                   year: "Today",
                   title: "200+ Managed Endpoints",
-                  desc: "Serving businesses from 1–300 employees, plus a large residential client base across NJ.",
+                  desc: "Serving organizations from 1 employee to hundreds, plus a large residential client base — all across New Jersey.",
                 },
               ].map((item) => (
                 <div
@@ -125,28 +129,28 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
+                title: "A Name, Not a Ticket Number",
+                desc: "Jason is your primary point of contact — accountable for every outcome. You always know who to call, and that person always knows who you are.",
+              },
+              {
+                title: "Depth Behind the Relationship",
+                desc: "Behind every engagement is a network of certified vendor partners, engineers, and specialists. The personalized experience of a local expert, backed by enterprise-level resources.",
+              },
+              {
                 title: "Honest Assessments",
-                desc: "We tell you what you actually need — not what sells the biggest contract. Sometimes that means telling you a repair isn't worth it.",
+                desc: "We tell you what you actually need — not what generates the biggest invoice. If a repair isn't worth it or a product isn't right for you, we'll say so.",
               },
               {
                 title: "Proactive, Not Reactive",
-                desc: "With Bitdefender endpoint security and Atera RMM, we monitor your systems and catch problems before they become outages.",
-              },
-              {
-                title: "No Jargon",
-                desc: "Whether you're a CTO or someone who just wants their email to work, we explain things in plain language.",
+                desc: "With enterprise-grade endpoint security and remote monitoring, we watch your systems around the clock and address issues before they become outages.",
               },
               {
                 title: "On-Site When It Matters",
-                desc: "Some things require hands on hardware. We come to your office or home — same day when possible.",
-              },
-              {
-                title: "Remote When It's Faster",
-                desc: "Many issues are solved in minutes with remote access tools. No waiting around for a tech to show up.",
+                desc: "Some problems require hands on hardware. We come to your office or home — same or next day in most cases — and we stay until it&apos;s resolved.",
               },
               {
                 title: "Long Relationships",
-                desc: "Most of our clients have been with us for years — some for decades. We know your setup because we've been there for it.",
+                desc: "Many of our clients have been with us for years — some for decades. That history means faster diagnosis, better solutions, and a team that truly knows your environment.",
               },
             ].map((item) => (
               <div
@@ -168,12 +172,12 @@ export default function About() {
       <section className="py-16 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-extrabold text-slate-900 mb-4">
-            Service Area
+            Based in New Jersey. Available Beyond.
           </h2>
           <p className="text-slate-500 text-base max-w-xl mx-auto mb-8">
-            We primarily serve clients throughout New Jersey, with on-site
-            availability across Monmouth, Ocean, Middlesex, and surrounding
-            counties.
+            We provide on-site support across 13 New Jersey counties, with
+            remote support available statewide and throughout the country.
+            Wherever you are, we can help.
           </p>
           <Link
             href="/contact"
