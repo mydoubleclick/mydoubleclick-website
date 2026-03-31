@@ -9,8 +9,25 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <section className="bg-blue-50 border-b border-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden min-h-[220px]">
+        <div className="absolute right-0 top-0 w-5/12 h-full hidden lg:block overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1400&q=80"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/30 to-transparent" />
+        </div>
+        <div
+          className="absolute right-0 top-0 w-5/12 h-full hidden lg:block opacity-10 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle, #1e3a5f 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-4">
             Get in Touch
           </h1>
