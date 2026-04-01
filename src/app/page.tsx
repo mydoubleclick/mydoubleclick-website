@@ -170,10 +170,6 @@ export default function Home() {
                   <p className="text-slate-500 text-base">Trusted IT — New Jersey Since 1987</p>
                 </div>
               </div>
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                New Jersey IT Services — Est. 1987
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
                 Technology that{" "}
                 <span className="text-blue-600">works.</span>
