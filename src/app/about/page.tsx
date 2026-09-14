@@ -22,7 +22,7 @@ const timeline = [
   },
   {
     year: "Today",
-    title: "200+ Managed Endpoints",
+    title: "500+ Managed Endpoints",
     desc: "Serving organizations from 1 employee to hundreds, plus a large residential client base — all across New Jersey.",
   },
 ];

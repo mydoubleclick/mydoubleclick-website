@@ -77,7 +77,7 @@ export default function Header() {
           <div className="rail-items">
             <span>
               <span className="pulse" />
-              Monitoring 200+ endpoints
+              Monitoring 500+ endpoints
             </span>
             <span className="on-ink">Same-day response</span>
             <span className="on-ink">On-site across 13 NJ counties</span>

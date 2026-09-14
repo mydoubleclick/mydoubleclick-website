@@ -35,7 +35,7 @@ const testimonials = [
 
 const stats = [
   { value: "38+", label: "Years in business" },
-  { value: "200+", label: "Endpoints managed" },
+  { value: "500+", label: "Endpoints managed" },
   { value: "NJ", label: "Based & on-site" },
   { value: "24/7", label: "Remote support" },
 ];
