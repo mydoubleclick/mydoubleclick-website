@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NJMap from "@/components/NJMap";
-import { Arw, CountyChips, Cta, Frame, PageHero, Partners } from "@/components/site";
+import { Arw, CheckIcon, CountyChips, Cta, Frame, PageHero, Partners } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,6 +24,36 @@ const timeline = [
     year: "Today",
     title: "500+ Managed Endpoints",
     desc: "Serving organizations from 1 employee to hundreds, plus a large residential client base — all across New Jersey.",
+  },
+];
+
+// Role-focused, not biographies — Jason asked for Zach's role to be featured
+// rather than a personal bio.
+const team = [
+  {
+    name: "Jason Hubert",
+    initials: "JH",
+    role: "Founder & Owner",
+    summary:
+      "Founded Double Click Computing in 1987 and leads the technical direction of every engagement.",
+    duties: [
+      { label: "Technical direction", detail: "Managed IT, networking, and security strategy for business and residential clients." },
+      { label: "Solutions & systems", detail: "Designing the right technology for each environment — from a single home office to hundreds of employees." },
+    ],
+  },
+  {
+    name: "Zach Hubert",
+    initials: "ZH",
+    role: "Director of Client Experience & Operations",
+    summary:
+      "Makes sure every client has a great experience — before, during, and after the work is done.",
+    duties: [
+      { label: "Customer experience & relationships", detail: "Your point of contact for scheduling, questions, and making sure you're happy with the results." },
+      { label: "Follow-up", detail: "Checking in after projects and service visits so nothing falls through the cracks." },
+      { label: "Project planning & logistics", detail: "Coordinating schedules, equipment, and timelines so installs and projects run smoothly." },
+      { label: "New product research & testing", detail: "Hands-on testing of new consumer technology — smart home, wearables, and more — before we recommend it." },
+      { label: "Marketing & communications", detail: "Social media and client communications that keep you up to date on what's new." },
+    ],
   },
 ];
 
@@ -117,6 +147,53 @@ export default function About() {
                 <p className="small" style={{ margin: 0 }}>
                   {t.desc}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="pad">
+        <div className="wrap">
+          <div className="stack g-md" style={{ marginBottom: "clamp(2rem,4vw,3rem)" }}>
+            <span className="eyebrow">Our team</span>
+            <h2 className="display d2">
+              The people behind
+              <br />
+              your support.
+            </h2>
+          </div>
+          <div className="cols-2" style={{ gap: "clamp(2rem,5vw,4.5rem)", alignItems: "start" }}>
+            {team.map((person) => (
+              <div key={person.name} className="stack rise">
+                <div className="row g-md">
+                  <span className="avatar avatar-lg" aria-hidden="true">
+                    {person.initials}
+                  </span>
+                  <div className="stack">
+                    <span className="eyebrow eyebrow-sage">{person.role}</span>
+                    <h3 className="display d3" style={{ marginTop: ".35rem" }}>
+                      {person.name}
+                    </h3>
+                  </div>
+                </div>
+                <p className="lede" style={{ margin: "1.25rem 0 1rem" }}>
+                  {person.summary}
+                </p>
+                <div className="hair-end">
+                  {person.duties.map((d) => (
+                    <div key={d.label} className="check-row">
+                      <span className="check">
+                        <CheckIcon />
+                      </span>
+                      <div>
+                        <h3>{d.label}</h3>
+                        <p className="small">{d.detail}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

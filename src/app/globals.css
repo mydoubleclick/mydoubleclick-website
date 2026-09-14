@@ -169,7 +169,9 @@ nav.main a[aria-current]{background:var(--ink);color:var(--paper)}
 @media(min-width:36rem){.cols-4{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:60rem){.cols-4{grid-template-columns:repeat(4,1fr)}}
 .sticky-col{position:sticky;top:7rem}
-@media(max-width:55.99rem){.sticky-col{position:static}}
+/* relative, not static: framed arches use .sticky-col and must stay the
+   containing block for their absolutely positioned layers */
+@media(max-width:55.99rem){.sticky-col{position:relative;top:auto}}
 
 /* stat row — capsule, hairline separators */
 .stats{display:grid;gap:0;background:#F7F5EF;border-radius:var(--r-lg);box-shadow:var(--lift);overflow:hidden}
@@ -211,6 +213,7 @@ a.tech:hover{transform:translateY(-3px);box-shadow:var(--lift-2);background:#fff
 .quote blockquote{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.4;letter-spacing:-.01em}
 .quote figcaption{display:flex;align-items:center;gap:.75rem;margin-top:auto}
 .avatar{width:2.4rem;height:2.4rem;border-radius:50%;background:var(--sage-wash);color:var(--sage-deep);display:grid;place-items:center;font-size:.78rem;font-weight:700;flex:none}
+.avatar-lg{width:4.5rem;height:4.5rem;font-family:var(--f-display);font-weight:400;font-size:1.4rem}
 
 /* partners — real brand marks, normalised optically */
 .partners{display:flex;align-items:center;justify-content:center;gap:clamp(1.75rem,5vw,3.75rem);flex-wrap:wrap}
