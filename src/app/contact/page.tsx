@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Arw, PageHero } from "@/components/site";
-import { BOOKING_URL, EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/data/site";
+import { BOOKING_URL, EMAIL, PHONE_DISPLAY, PHONE_HREF, ZACH_EMAIL } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -85,9 +85,24 @@ export default function Contact() {
               </div>
               <div className="panel-pale" style={{ padding: "1.5rem" }}>
                 <span className="eyebrow">Email</span>
-                <p className="display d4" style={{ margin: ".5rem 0 0", overflowWrap: "anywhere" }}>
-                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                </p>
+                <div className="stack g-md" style={{ marginTop: ".75rem" }}>
+                  <div>
+                    <p className="display d4" style={{ margin: 0, overflowWrap: "anywhere" }}>
+                      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                    </p>
+                    <p className="tiny" style={{ margin: ".2rem 0 0" }}>
+                      Jason Hubert &middot; Technical support &amp; service
+                    </p>
+                  </div>
+                  <div>
+                    <p className="display d4" style={{ margin: 0, overflowWrap: "anywhere" }}>
+                      <a href={`mailto:${ZACH_EMAIL}`}>{ZACH_EMAIL}</a>
+                    </p>
+                    <p className="tiny" style={{ margin: ".2rem 0 0" }}>
+                      Zach Hubert &middot; Scheduling, projects &amp; client experience
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="panel-pale" style={{ padding: "1.5rem" }}>
                 <span className="eyebrow">Service area</span>
