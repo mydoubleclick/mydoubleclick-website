@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Device Procurement & Setup | Double Click Computing",
+  title: "Device Procurement & Setup",
   description: "We source, configure, and deploy Windows and Mac workstations for NJ businesses. Ready for your team from day one.",
 };
 

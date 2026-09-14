@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Residential & Home Office IT | Double Click Computing",
+  title: "Residential & Home Office IT",
   description:
     "Friendly home computer repair, networking, virus removal, and remote support for NJ homeowners and home office workers.",
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Computer Repair & Tune-Up | Double Click Computing",
+  title: "Computer Repair & Tune-Up",
   description: "Windows and Mac computer repair and tune-up for NJ homeowners. Slow computers, crashes, hardware failures — diagnosed and fixed.",
 };
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { technologyCategories } from "@/data/technology";
 
 // PLACEHOLDER testimonials — replace with real client quotes before launch
 const testimonials = [
@@ -81,12 +82,12 @@ const whyUs = [
   {
     title: "38 Years of Experience",
     description:
-      "Jason Hubert has been solving technology problems since 1987. Deep expertise you can trust.",
+      "Solving technology problems for New Jersey since 1987. Deep expertise you can trust.",
   },
   {
     title: "Real Accountability",
     description:
-      "You work directly with Jason — not a ticketing queue or offshore help desk. One expert, fully responsible.",
+      "A dedicated team that knows your setup and owns the outcome — not a ticketing queue or offshore help desk.",
   },
   {
     title: "Business & Consumer",
@@ -121,7 +122,7 @@ const industries = [
 const faqs = [
   {
     q: "How quickly do you respond to support requests?",
-    a: "Same day — usually within a few hours during business hours. For urgent issues, call or text Jason directly and he'll get back to you fast.",
+    a: "Same day — usually within a few hours during business hours. For urgent issues, call or text us at (888) 9-CLICK-9 and we'll get back to you fast.",
   },
   {
     q: "Do you work with both Windows and Mac?",
@@ -129,7 +130,7 @@ const faqs = [
   },
   {
     q: "What's the difference between remote and on-site support?",
-    a: "Remote support lets us connect to your computer over the internet and fix most software issues in minutes — no waiting for a visit. On-site support means Jason comes to you for hardware issues, installations, cabling, or anything that can't be done remotely.",
+    a: "Remote support lets us connect to your computer over the internet and fix most software issues in minutes — no waiting for a visit. On-site support means we come to you for hardware issues, installations, cabling, or anything that can't be done remotely.",
   },
   {
     q: "Do you require long-term contracts?",
@@ -141,7 +142,7 @@ const faqs = [
   },
   {
     q: "How is this different from taking my computer to a big box store?",
-    a: "We come to you, we know your specific setup, and you talk to the same person every time. No ticket numbers, no drop-offs, no \"it might take a week.\" Just direct access to a local expert who treats your problem like it matters.",
+    a: "We come to you, we know your specific setup, and you work with a team that already knows your history. No ticket numbers, no drop-offs, no \"it might take a week.\" Just direct access to local experts who treat your problem like it matters.",
   },
   {
     q: "Can you help if I'm not sure what's wrong?",
@@ -282,6 +283,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Technology */}
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
+                Technology
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+                Beyond the Computer
+              </h2>
+              <p className="text-slate-500 text-lg max-w-2xl">
+                Smart homes, AI, security cameras, conference rooms, and the
+                latest devices — we install, integrate, and support the
+                technology businesses and families rely on.
+              </p>
+            </div>
+            <Link
+              href="/technology"
+              className="inline-flex items-center gap-2 self-start lg:self-auto bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded transition-colors text-sm flex-shrink-0"
+            >
+              Explore Technology
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {technologyCategories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/technology/${cat.slug}`}
+                className="group flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-400 hover:shadow-md transition-all"
+              >
+                <div className="p-2.5 rounded-lg bg-blue-600 text-white flex-shrink-0">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
+                  </svg>
+                </div>
+                <div className="min-w-0">
+                  <div className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
+                    {cat.title}
+                  </div>
+                  <div className="text-slate-500 text-xs truncate">
+                    {cat.products.slice(0, 3).map((p) => p.brand).join(" · ")}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Parallax 1 */}
       <div
         className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
@@ -308,7 +363,7 @@ export default function Home() {
               </h2>
               <p className="text-slate-500 text-lg leading-relaxed mb-8">
                 In a world of impersonal help desks and offshore support, we
-                offer something increasingly rare: a real local expert who knows
+                offer something increasingly rare: a real local team that knows
                 your setup, answers the phone, and shows up.
               </p>
               <Link
@@ -378,7 +433,7 @@ export default function Home() {
             Enterprise tools. Local expertise. Personal service.
           </p>
           <p className="text-slate-300 text-base sm:text-lg">
-            The security and reliability of a large IT firm — with someone who actually picks up the phone.
+            The security and reliability of a large IT firm — with a local team that actually picks up the phone.
           </p>
         </div>
       </div>
@@ -460,7 +515,7 @@ export default function Home() {
             Focus on your business. We&apos;ll handle the tech.
           </p>
           <p className="text-slate-300 text-base sm:text-lg">
-            One call. One expert. Everything IT — taken care of.
+            One call. One team. Everything IT — taken care of.
           </p>
         </div>
       </div>

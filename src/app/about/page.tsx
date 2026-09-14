@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | Double Click Computing",
+  title: "About",
   description:
     "38 years of IT expertise serving New Jersey businesses and homeowners. Meet the team behind Double Click Computing.",
 };
@@ -57,10 +57,11 @@ export default function About() {
                   Jersey.
                 </p>
                 <p>
-                  Jason leads every client relationship personally. When you
-                  call, you reach him — not a help desk, not a ticketing system,
-                  not someone reading from a script. He knows your setup, your
-                  priorities, and your history, because he&apos;s been there for it.
+                  Today, Double Click Computing is built around a simple idea:
+                  when you call, you reach a team that knows you — not a
+                  faceless help desk, not a ticketing system, not someone
+                  reading from a script. We know your setup, your priorities,
+                  and your history, because we&apos;ve been there for it.
                 </p>
                 <p>
                   Behind that relationship is a full ecosystem of certified
@@ -130,11 +131,11 @@ export default function About() {
             {[
               {
                 title: "A Name, Not a Ticket Number",
-                desc: "Jason is your primary point of contact — accountable for every outcome. You always know who to call, and that person always knows who you are.",
+                desc: "You work with a dedicated team that owns every outcome. You always know who to call — and we always know who you are and how your systems are set up.",
               },
               {
                 title: "Depth Behind the Relationship",
-                desc: "Behind every engagement is a network of certified vendor partners, engineers, and specialists. The personalized experience of a local expert, backed by enterprise-level resources.",
+                desc: "Behind every engagement is a network of certified vendor partners, engineers, and specialists. The personalized experience of a local IT partner, backed by enterprise-level resources.",
               },
               {
                 title: "Honest Assessments",

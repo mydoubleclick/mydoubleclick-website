@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Remote Monitoring & Management | Double Click Computing",
+  title: "Remote Monitoring & Management",
   description: "Atera RMM for NJ businesses. 24/7 system monitoring, automated patching, alerts, and proactive IT management.",
 };
 

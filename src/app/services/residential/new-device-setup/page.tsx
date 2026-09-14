@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "New Device Setup | Double Click Computing",
+  title: "New Device Setup",
   description: "New computer, tablet, or phone setup for NJ homeowners. We configure everything and transfer your files so you're ready to go from day one.",
 };
 

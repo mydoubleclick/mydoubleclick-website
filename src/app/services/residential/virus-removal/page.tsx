@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Virus & Malware Removal | Double Click Computing",
+  title: "Virus & Malware Removal",
   description: "Complete virus and malware removal for NJ homeowners. We clean infected computers and set up protection so it doesn't happen again.",
 };
 

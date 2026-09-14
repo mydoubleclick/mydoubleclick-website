@@ -3,7 +3,7 @@ import Link from "next/link";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Remote Support for Home Users | Double Click Computing",
+  title: "Remote Support for Home Users",
   description: "Fast remote IT support for NJ homeowners. Download Splashtop SOS and we connect to your computer in minutes — no house call needed.",
 };
 

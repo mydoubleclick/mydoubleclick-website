@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Home Network Setup | Double Click Computing",
+  title: "Home Network Setup",
   description: "Home Wi-Fi and network setup for NJ homeowners. Fast, reliable coverage throughout your home — done right.",
 };
 

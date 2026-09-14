@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "On-Site IT Support | Double Click Computing",
+  title: "On-Site IT Support",
   description: "On-site IT support for NJ businesses. Hardware failures, new setups, cabling, and hands-on help when remote support isn't enough.",
 };
 

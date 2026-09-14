@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Endpoint Security | Double Click Computing",
+  title: "Endpoint Security",
   description: "Bitdefender GravityZone endpoint protection for NJ businesses. Enterprise-grade antivirus, threat detection, and centralized management.",
 };
 
@@ -17,7 +17,7 @@ export default function EndpointSecurity() {
       includes={[
         { label: "Bitdefender GravityZone deployment", detail: "Installed and configured on every desktop and laptop in your organization." },
         { label: "Real-time threat detection", detail: "Catches malware, ransomware, phishing, and zero-day threats before damage occurs." },
-        { label: "Centralized management console", detail: "Jason monitors all your endpoints from a single dashboard — you don't have to." },
+        { label: "Centralized management console", detail: "We monitor all your endpoints from a single dashboard — you don't have to." },
         { label: "Automatic updates", detail: "Definitions and engine updates happen automatically, keeping protection current." },
         { label: "Threat remediation", detail: "When a threat is detected, we investigate and remediate — not just quarantine." },
         { label: "Monthly endpoint reporting", detail: "Summary of threats detected, blocked, and resolved across your environment." },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Double Click Computing",
+  title: "Contact",
   description:
     "Get in touch with Double Click Computing for IT support in New Jersey. Call, email, or fill out the form.",
 };

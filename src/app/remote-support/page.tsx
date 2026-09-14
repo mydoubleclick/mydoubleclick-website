@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Remote Support | Double Click Computing",
+  title: "Remote Support",
   description:
-    "Get instant remote IT support from Double Click Computing. Download Splashtop SOS and connect to Jason in minutes.",
+    "Get instant remote IT support from Double Click Computing. Download Splashtop SOS and connect with our team in minutes.",
 };
 
 const steps = [
@@ -17,13 +17,13 @@ const steps = [
     step: "2",
     title: "Open the App & Share Your Code",
     description:
-      "Open the downloaded app. You'll see a 9-digit session code. Call or text that code to Jason and tell him what the issue is.",
+      "Open the downloaded app. You'll see a 9-digit session code. Call or text that code to us at (888) 9-CLICK-9 and tell us what the issue is.",
   },
   {
     step: "3",
     title: "We Connect & Fix",
     description:
-      "Jason connects to your computer securely. You can watch everything in real time and end the session any time.",
+      "We connect to your computer securely. You can watch everything in real time and end the session any time.",
   },
 ];
 
@@ -143,7 +143,7 @@ export default function RemoteSupport() {
             </div>
 
             <p className="text-slate-500 text-xs mt-6">
-              After downloading, call or text Jason:{" "}
+              After downloading, call or text us:{" "}
               <a
                 href="tel:+18889254259"
                 className="text-sky-400 hover:text-sky-300"

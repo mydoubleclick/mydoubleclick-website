@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Home Computer Security Setup | Double Click Computing",
+  title: "Home Computer Security Setup",
   description: "Antivirus, password managers, and two-factor authentication setup for NJ homeowners. Keep your family and finances safe online.",
 };
 

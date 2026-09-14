@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Home Office IT Support | Double Click Computing",
+  title: "Home Office IT Support",
   description: "Home office setup and support for NJ remote workers. VPN, printers, video calls, and reliable networking — set up right.",
 };
 

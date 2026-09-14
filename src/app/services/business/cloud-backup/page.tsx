@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Cloud Backup | Double Click Computing",
+  title: "Cloud Backup",
   description: "Automated cloud backup for NJ businesses powered by Backblaze. Protect business-critical data with offsite, recoverable backups.",
 };
 

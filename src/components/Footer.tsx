@@ -33,6 +33,7 @@ export default function Footer() {
                   href: "/services/residential",
                   label: "Residential & Home Office",
                 },
+                { href: "/technology", label: "Technology" },
                 { href: "/remote-support", label: "Remote Support" },
               ].map((link) => (
                 <li key={link.href}>

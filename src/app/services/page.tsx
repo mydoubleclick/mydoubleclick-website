@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "IT Services | Double Click Computing",
+  title: "IT Services",
   description:
     "Managed IT services for businesses and residential clients in New Jersey. Cybersecurity, networking, backup, and on-site support.",
 };

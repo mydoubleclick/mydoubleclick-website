@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Managed IT & Help Desk | Double Click Computing",
+  title: "Managed IT & Help Desk",
   description: "Proactive managed IT services and help desk support for NJ small businesses. One call for everything tech.",
 };
 
@@ -13,7 +13,7 @@ export default function ManagedIT() {
       breadcrumbHref="/services/business"
       tag="Managed IT Services"
       title="Managed IT & Help Desk"
-      description="Your entire IT environment — monitored, maintained, and supported by one expert who knows your setup. One number to call when anything goes wrong."
+      description="Your entire IT environment — monitored, maintained, and supported by a team that knows your setup. One number to call when anything goes wrong."
       includes={[
         { label: "Proactive system monitoring", detail: "We watch your systems 24/7 and address issues before they become outages." },
         { label: "Help desk support", detail: "Remote and on-site support for staff — software issues, email, printers, and more." },
@@ -30,7 +30,7 @@ export default function ManagedIT() {
       ]}
       notes={[
         "Most issues are resolved remotely within hours.",
-        "You get direct access to Jason — not a ticketing queue.",
+        "You get direct access to our team — not a ticketing queue.",
         "No long-term contracts required.",
       ]}
       heroImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80"

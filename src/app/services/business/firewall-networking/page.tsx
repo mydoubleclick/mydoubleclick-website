@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Firewall & Network Security | Double Click Computing",
+  title: "Firewall & Network Security",
   description: "Fortinet FortiGate firewall installation, configuration, and management for NJ businesses. Secure, reliable business networking.",
 };
 

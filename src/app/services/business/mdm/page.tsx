@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "MDM & Mobile Device Management | Double Click Computing",
+  title: "MDM & Mobile Device Management",
   description: "Mobile device management for NJ businesses. Policy enforcement, remote wipe, app management, and compliance for iPhones, iPads, and laptops.",
 };
 

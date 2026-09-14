@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailPage from "@/components/ServiceDetailPage";
 
 export const metadata: Metadata = {
-  title: "Data Backup & Recovery | Double Click Computing",
+  title: "Data Backup & Recovery",
   description: "Home computer backup setup and data recovery for NJ residents. Protect your photos, files, and memories before a hard drive failure.",
 };
 

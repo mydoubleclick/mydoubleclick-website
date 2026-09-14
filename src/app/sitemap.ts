@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { technologyCategories } from "@/data/technology";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.mydoubleclick.com";
@@ -24,6 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services/residential/home-office`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/services/residential/remote-support`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/services/residential/security-setup`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/technology`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    ...technologyCategories.map((c) => ({
+      url: `${base}/technology/${c.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     { url: `${base}/about`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/remote-support`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
