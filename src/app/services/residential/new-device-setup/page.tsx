@@ -14,7 +14,6 @@ export default function NewDeviceSetup() {
       tag="Residential & Home Office"
       title="New Device Setup"
       description="Got a new computer, tablet, or phone? Don't spend hours figuring it out. We set everything up, transfer your files, and make sure it all works before we leave."
-      accentColor="sky"
       includes={[
         { label: "Initial setup & configuration", detail: "Windows or macOS set up properly from the start — accounts, updates, and preferences." },
         { label: "Data transfer from old device", detail: "Files, photos, music, and documents moved from your old computer to the new one." },
@@ -34,7 +33,7 @@ export default function NewDeviceSetup() {
         "Old device responsibly wiped if you're donating or trading it in.",
         "Remote setup available for some devices — ask us.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1400&q=80"
+      gfx="fleet"
     />
   );
 }

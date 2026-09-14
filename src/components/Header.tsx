@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import BrandName from "@/components/BrandName";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/data/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,149 +15,165 @@ const navLinks = [
   { href: "/about", label: "About" },
 ];
 
+function isCurrent(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const close = () => setOpen(false);
+
+  // Drawer behaviour: scroll lock, focus trap, Escape to close, and close if
+  // the viewport grows past the breakpoint where the full nav returns.
+  useEffect(() => {
+    if (!open) return;
+    const drawer = drawerRef.current;
+    const menuBtn = menuBtnRef.current;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusables = () =>
+      Array.from(drawer?.querySelectorAll<HTMLElement>("a[href], button") ?? []);
+    focusables()[0]?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const els = focusables();
+      if (!els.length) return;
+      const first = els[0];
+      const last = els[els.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    const wide = window.matchMedia("(min-width: 62.01rem)");
+    const onWide = () => wide.matches && setOpen(false);
+
+    document.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+      menuBtn?.focus();
+    };
+  }, [open]);
 
   return (
-    <header className="bg-slate-950 sticky top-0 z-50 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 relative flex-shrink-0">
-              <Image
-                src="/images/logo.png"
-                alt="Double Click Computing logo"
-                fill
-                className="object-contain drop-shadow-sm"
-                priority
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-lg leading-tight tracking-tight">
-                Double Click
-              </span>
-              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Computing
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
-                  pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href))
-                    ? "text-sky-400"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA area */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:+18889254259"
-              className="text-sm text-slate-300 hover:text-white transition-colors"
-            >
-              (888) 9-CLICK-9
-            </a>
-            <Link
-              href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
-            >
-              Get in Touch
-            </Link>
-            {/* Remote Support — pulsing icon */}
-            <Link
-              href="/remote-support"
-              title="Remote Support"
-              className="relative flex items-center justify-center group"
-            >
-              {/* Dual staggered ping rings for stronger pulse */}
-              <span className="absolute w-11 h-11 rounded-xl bg-orange-500 opacity-25 animate-ping" />
-              <span className="absolute w-11 h-11 rounded-xl bg-orange-500 opacity-20 animate-ping" style={{ animationDelay: "0.4s" }} />
-              {/* Icon button */}
-              <span className={`relative flex items-center justify-center w-9 h-9 rounded-xl border transition-colors ${
-                pathname === "/remote-support"
-                  ? "bg-orange-500/30 border-orange-400 text-orange-300"
-                  : "bg-slate-800 border-orange-500/70 text-orange-400 group-hover:bg-orange-500/20 group-hover:border-orange-400"
-              }`}>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </span>
-              {/* Tooltip */}
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs bg-slate-800 text-white px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                Remote Support
-              </span>
-            </Link>
+    <>
+      <div className="rail">
+        <div className="wrap">
+          <div className="rail-items">
+            <span>
+              <span className="pulse" />
+              Monitoring 200+ endpoints
+            </span>
+            <span className="on-ink">Same-day response</span>
+            <span className="on-ink">On-site across 13 NJ counties</span>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-slate-300 hover:text-white p-2 rounded transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+          <Link href="/remote-support" className="on-ink">
+            Remote Support &rarr;
+          </Link>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
-          <nav className="flex flex-col gap-1 pt-3">
+      <header className="site">
+        <div className="wrap">
+          <Link className="brand" href="/" aria-label="Double Click Computing home">
+            <img className="brand-mark" src="/images/logo.png" alt="" width={450} height={450} />
+            <BrandName />
+          </Link>
+          <nav className="main" aria-label="Main">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-3 py-2 text-sm rounded transition-colors ${
-                  pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href))
-                    ? "text-sky-400"
-                    : "text-slate-300 hover:text-white"
-                }`}
-                onClick={() => setMobileOpen(false)}
+                aria-current={isCurrent(pathname, link.href) ? "page" : undefined}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/remote-support"
-              className="block px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded"
-              onClick={() => setMobileOpen(false)}
-            >
-              Remote Support
-            </Link>
-            <Link
-              href="/contact"
-              className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded text-center transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
+          </nav>
+          <div className="head-act">
+            <a href={PHONE_HREF} className="small" style={{ fontWeight: 600 }}>
+              {PHONE_DISPLAY}
+            </a>
+            <Link href="/contact" className="btn btn-ink btn-sm">
               Get in Touch
             </Link>
-          </nav>
+            <button
+              ref={menuBtnRef}
+              className="menu-btn"
+              aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="site-drawer"
+              onClick={() => setOpen(true)}
+            >
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                <path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {open && (
+        <div
+          className="drawer"
+          id="site-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          ref={drawerRef}
+        >
+          <div className="wrap drawer-top">
+            <Link className="brand" href="/" onClick={close} aria-label="Double Click Computing home">
+              <img className="brand-mark" src="/images/logo.png" alt="" width={450} height={450} />
+              <BrandName />
+            </Link>
+            <button className="menu-btn" aria-label="Close menu" onClick={close}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </button>
+          </div>
+          <div className="wrap">
+            <nav aria-label="Mobile">
+              {[...navLinks, { href: "/remote-support", label: "Remote Support" }, { href: "/contact", label: "Contact" }].map(
+                (link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={close}
+                    aria-current={isCurrent(pathname, link.href) ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </nav>
+            <div className="drawer-act">
+              <Link href="/contact" onClick={close} className="btn btn-sage btn-lg">
+                Get in Touch <span className="arw" aria-hidden="true">&rarr;</span>
+              </Link>
+              <a href={PHONE_HREF} className="btn btn-line btn-lg">
+                Call {PHONE_DISPLAY}
+              </a>
+            </div>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

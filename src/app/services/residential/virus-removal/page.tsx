@@ -14,7 +14,6 @@ export default function VirusRemoval() {
       tag="Residential & Home Office"
       title="Virus & Malware Removal"
       description="Pop-ups, redirects, ransomware, or just a computer that's acting strange — we remove the infection completely and set up protection so it doesn't happen again."
-      accentColor="sky"
       includes={[
         { label: "Full malware scan & removal", detail: "Deep scan using professional tools to find and remove all infections." },
         { label: "Rootkit & adware removal", detail: "Hidden infections that standard antivirus misses — we find and eliminate them." },
@@ -34,7 +33,7 @@ export default function VirusRemoval() {
         "We can often work remotely if the computer is still functional.",
         "We'll tell you honestly if it's faster to reinstall Windows than to clean the infection.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1400&q=80"
+      gfx="layers"
     />
   );
 }

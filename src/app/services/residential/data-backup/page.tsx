@@ -14,7 +14,6 @@ export default function DataBackup() {
       tag="Residential & Home Office"
       title="Data Backup & Recovery"
       description="Hard drives fail. Computers get stolen. Accidents happen. A backup running quietly in the background means your photos, documents, and memories are safe no matter what."
-      accentColor="sky"
       includes={[
         { label: "Backup solution setup", detail: "Cloud backup (Backblaze, iCloud, OneDrive, or Google) configured and running automatically." },
         { label: "External drive backup", detail: "Local backup to an external drive for fast recovery without internet." },
@@ -33,7 +32,7 @@ export default function DataBackup() {
         "Cloud backup + local drive = the safest combination.",
         "We can recover data from failed drives in many cases — reach out before writing off a drive.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1400&q=80"
+      gfx="cloud"
     />
   );
 }

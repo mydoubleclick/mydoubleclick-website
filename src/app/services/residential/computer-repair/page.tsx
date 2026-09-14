@@ -14,7 +14,6 @@ export default function ComputerRepair() {
       tag="Residential & Home Office"
       title="Computer Repair & Tune-Up"
       description="Slow, crashing, or just not working right? We diagnose and fix Windows and Mac computers — on-site at your home or remotely when possible."
-      accentColor="sky"
       includes={[
         { label: "Full diagnostic", detail: "We identify what's actually wrong before recommending any repairs." },
         { label: "Hardware repair & replacement", detail: "Hard drives, RAM, screens, keyboards, power supplies, and more." },
@@ -33,7 +32,7 @@ export default function ComputerRepair() {
         "Many software issues can be resolved remotely — faster and cheaper.",
         "We support both Windows and Mac computers.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1400&q=80"
+      gfx="monitor"
     />
   );
 }

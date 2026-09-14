@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { technologyCategories } from "@/data/technology";
+import { BOOKING_URL, PHONE_DISPLAY, PHONE_HREF } from "@/data/site";
+import type { GfxName } from "@/components/gfx";
+import NJMap from "@/components/NJMap";
+import { Arw, CountyChips, Cta, Frame, IndustriesSplit, Partners } from "@/components/site";
 
 // PLACEHOLDER testimonials — replace with real client quotes before launch
 const testimonials = [
@@ -30,59 +34,53 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "38+", label: "Years in Business" },
-  { value: "200+", label: "Endpoints Managed" },
-  { value: "NJ", label: "Based & On-Site" },
-  { value: "24/7", label: "Remote Support" },
+  { value: "38+", label: "Years in business" },
+  { value: "200+", label: "Endpoints managed" },
+  { value: "NJ", label: "Based & on-site" },
+  { value: "24/7", label: "Remote support" },
 ];
 
-const services = [
+const services: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  chips: string[];
+  href: string;
+  gfx: GfxName;
+}[] = [
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5m4 0H9" />
-      </svg>
-    ),
+    eyebrow: "01 · Business",
     title: "Managed IT Services",
     description:
       "Managed IT, cybersecurity, networking, and on-site support tailored for small and mid-sized businesses. One point of contact for everything tech.",
+    chips: ["Endpoint security", "Firewall & network", "Cloud backup", "RMM", "MDM"],
     href: "/services/business",
-    accent: "from-blue-600 to-blue-800",
+    gfx: "servers",
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
+    eyebrow: "02 · Residential",
     title: "Residential & Home Office",
     description:
       "Home computer repair, setup, networking, and security for homeowners and remote workers. We come to you, or connect remotely.",
+    chips: ["Repair & tune-up", "Home Wi-Fi", "Virus removal", "New device setup"],
     href: "/services/residential",
-    accent: "from-sky-500 to-sky-700",
+    gfx: "mesh",
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
+    eyebrow: "03 · Anywhere",
     title: "Remote Support",
     description:
       "Fast remote assistance without waiting for a truck roll. Download Splashtop SOS and we can connect to your device in minutes.",
+    chips: ["Connect in minutes", "You watch live", "End anytime"],
     href: "/remote-support",
-    accent: "from-indigo-500 to-indigo-700",
+    gfx: "monitor",
   },
 ];
 
 const whyUs = [
   {
     title: "38 Years of Experience",
-    description:
-      "Solving technology problems for New Jersey since 1987. Deep expertise you can trust.",
+    description: "Solving technology problems for New Jersey since 1987. Deep expertise you can trust.",
   },
   {
     title: "Real Accountability",
@@ -99,24 +97,6 @@ const whyUs = [
     description:
       "New Jersey-based and willing to come to you. Real on-site support when remote just isn't enough.",
   },
-];
-
-const counties = [
-  "Essex", "Morris", "Bergen", "Sussex", "Warren",
-  "Passaic", "Hudson", "Hunterdon", "Somerset", "Union",
-  "Middlesex", "Mercer", "Monmouth",
-];
-
-const industries = [
-  "Medical & Dental Practices",
-  "Financial Firms",
-  "Legal Firms",
-  "Government & Municipalities",
-  "Manufacturing & Light Industry",
-  "Education Providers",
-  "Architecture & Design",
-  "Restaurant & Hospitality",
-  "Home Offices & Residential",
 ];
 
 const faqs = [
@@ -154,241 +134,180 @@ const faqs = [
   },
 ];
 
+const initials = (name: string) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("");
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white relative overflow-hidden border-b border-slate-200">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: text */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo.png" alt="Double Click Computing" className="h-14 w-14 object-contain" />
-                <div>
-                  <p className="text-slate-900 font-extrabold text-3xl leading-tight">Double Click Computing</p>
-                  <p className="text-slate-500 text-base">Trusted IT — New Jersey Since 1987</p>
-                </div>
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
-                Technology that{" "}
-                <span className="text-blue-600">works.</span>
+      <section style={{ padding: "clamp(3.5rem,7vw,6.5rem) 0 0" }}>
+        <div className="wrap">
+          <div className="split split-a">
+            <div className="stack g-lg hero-copy">
+              <span className="eyebrow eyebrow-sage">Trusted IT &mdash; New Jersey since 1987</span>
+              <h1 className="display d1">
+                Technology that works.
                 <br />
-                Support you can{" "}
-                <span className="text-blue-600">count on.</span>
+                Support you can&nbsp;count&nbsp;on.
               </h1>
-              <p className="text-slate-600 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
-                Double Click Computing has been the trusted IT partner for New
-                Jersey businesses and homeowners for over 38 years. Managed IT,
-                cybersecurity, networking, and friendly on-site support — done
-                right.
+              <p className="lede mw-md">
+                Double Click Computing has been the trusted IT partner for New Jersey
+                businesses and homeowners for over 38 years. Managed IT, cybersecurity,
+                networking, and friendly on-site support &mdash; done right.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded text-center transition-colors"
-                >
-                  Get a Free IT Assessment
+              <div className="row g-sm">
+                <Link href="/contact" className="btn btn-sage btn-lg">
+                  Get a Free IT Assessment <Arw />
                 </Link>
-                <a
-                  href="https://DoubleClick.as.me/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base px-8 py-4 rounded text-center transition-colors"
-                >
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-line btn-lg">
                   Book an Appointment
                 </a>
               </div>
-              <p className="text-slate-400 text-sm mt-5">
+              <p className="tiny">
                 Or call us:{" "}
-                <a href="tel:+18889254259" className="text-blue-600 font-semibold hover:underline">
-                  (888) 9-CLICK-9
+                <a href={PHONE_HREF} style={{ color: "var(--ink)", fontWeight: 600 }}>
+                  {PHONE_DISPLAY}
                 </a>
               </p>
             </div>
-
-            {/* Right: photo */}
-            <div className="hidden lg:block relative rounded-2xl overflow-hidden min-h-[460px] shadow-xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1560264418-c4445382edbc?w=1200&q=85"
-                alt="Professional business office with computers"
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
-            </div>
+            <Frame gfx="rack" style={{ aspectRatio: "4/5", minHeight: "22rem" }} />
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-blue-500">
-            {stats.map((stat) => (
-              <div key={stat.label} className="py-8 px-6 text-center">
-                <div className="text-3xl font-extrabold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-blue-100 text-sm font-medium">
-                  {stat.label}
-                </div>
+      {/* Stats */}
+      <section className="pad-s">
+        <div className="wrap">
+          <div className="stats rise">
+            {stats.map((s) => (
+              <div key={s.label} className="stat">
+                <b className="num">{s.value}</b>
+                <span>{s.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-              What We Do
-            </h2>
-            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-              From enterprise-grade managed services to friendly home computer
-              help — we cover the full spectrum of IT support.
+      {/* What we do */}
+      <section className="pad" id="services">
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "end", marginBottom: "clamp(2rem,4vw,3.5rem)" }}>
+            <div className="stack g-md">
+              <span className="eyebrow">What we do</span>
+              <h2 className="display d2">
+                The full spectrum
+                <br />
+                of IT support.
+              </h2>
+            </div>
+            <p className="lede mw-sm">
+              From enterprise-grade managed services to friendly home computer help &mdash;
+              one point of contact for everything tech.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="group bg-white border border-slate-200 rounded-xl p-8 hover:border-blue-400 hover:shadow-xl transition-all"
-              >
-                <div
-                  className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${service.accent} text-white mb-5`}
-                >
-                  {service.icon}
-                </div>
-                <h3 className="text-slate-900 text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                  {service.description}
+          {services.map((s, i) => (
+            <div key={s.href} className={`svc rise${i === services.length - 1 ? " hair-end" : ""}`}>
+              <Frame gfx={s.gfx} variant="arch-sm" className="svc-thumb" />
+              <div className="stack g-sm">
+                <span className="eyebrow eyebrow-sage">{s.eyebrow}</span>
+                <h3 className="display d3">{s.title}</h3>
+                <p className="small mw-md" style={{ margin: 0 }}>
+                  {s.description}
                 </p>
-                <span className="text-blue-600 text-sm font-semibold flex items-center gap-1.5">
-                  Learn more
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <div className="row g-xs" style={{ marginTop: ".35rem" }}>
+                  {s.chips.map((c) => (
+                    <span key={c} className="chip chip-line">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <Link href={s.href} className="btn btn-line" style={{ justifySelf: "start" }}>
+                Learn more <Arw />
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Technology */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-            <div>
-              <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
-                Technology
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-                Beyond the Computer
+      <section className="pad arc-top" id="technology" style={{ background: "var(--paper-2)" }}>
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "end", marginBottom: "clamp(2rem,4vw,3rem)" }}>
+            <div className="stack g-md">
+              <span className="eyebrow">Technology</span>
+              <h2 className="display d2">
+                Beyond the
+                <br />
+                computer.
               </h2>
-              <p className="text-slate-500 text-lg max-w-2xl">
-                Smart homes, AI, security cameras, conference rooms, and the
-                latest devices — we install, integrate, and support the
-                technology businesses and families rely on.
-              </p>
             </div>
-            <Link
-              href="/technology"
-              className="inline-flex items-center gap-2 self-start lg:self-auto bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded transition-colors text-sm flex-shrink-0"
-            >
-              Explore Technology
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <div className="stack g-md">
+              <p className="lede mw-sm" style={{ margin: 0 }}>
+                Smart homes, AI, security cameras, conference rooms, and the latest devices
+                &mdash; we install, integrate, and support the technology businesses and
+                families rely on.
+              </p>
+              <Link href="/technology" className="btn btn-ink" style={{ alignSelf: "start" }}>
+                Explore Technology <Arw />
+              </Link>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="tech-flow rise">
             {technologyCategories.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/technology/${cat.slug}`}
-                className="group flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-400 hover:shadow-md transition-all"
-              >
-                <div className="p-2.5 rounded-lg bg-blue-600 text-white flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <div className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
-                    {cat.title}
-                  </div>
-                  <div className="text-slate-500 text-xs truncate">
-                    {cat.products.slice(0, 3).map((p) => p.brand).join(" · ")}
-                  </div>
-                </div>
+              <Link key={cat.slug} className="tech" href={`/technology/${cat.slug}`}>
+                <b>{cat.title}</b>
+                <span>{cat.products.slice(0, 3).map((p) => p.brand).join(" · ")}</span>
               </Link>
             ))}
+          </div>
+
+          <div className="tc mx mw-lg" style={{ marginTop: "clamp(3rem,6vw,5rem)" }}>
+            <span className="eyebrow eyebrow-sage">Proactive monitoring. Instant response.</span>
+            <p className="display d3 mx" style={{ marginTop: "1rem", maxWidth: "34rem" }}>
+              Technology problems solved before you even know they exist.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Parallax 1 */}
-      <div
-        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80')" }}
-      >
-        <div className="absolute inset-0 bg-slate-900/70" />
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
-            Proactive monitoring. Instant response.
-          </p>
-          <p className="text-slate-300 text-base sm:text-lg">
-            Technology problems solved before you even know they exist.
-          </p>
-        </div>
-      </div>
-
-      {/* Why Double Click */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-5">
-                Why Double Click Computing?
+      {/* Why */}
+      <section className="pad" id="why">
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "start" }}>
+            <div className="stack g-md sticky-col">
+              <span className="eyebrow">Why Double Click Computing</span>
+              <h2 className="display d2">
+                A real local team
+                <br />
+                that shows up.
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mb-8">
-                In a world of impersonal help desks and offshore support, we
-                offer something increasingly rare: a real local team that knows
-                your setup, answers the phone, and shows up.
+              <p className="lede mw-xs" style={{ margin: 0 }}>
+                In a world of impersonal help desks and offshore support, we offer something
+                increasingly rare: a real local team that knows your setup, answers the phone,
+                and shows up.
               </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
-              >
-                Our story
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              <Link href="/about" className="btn btn-line" style={{ alignSelf: "start", marginTop: ".5rem" }}>
+                Our story <Arw />
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {whyUs.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-white rounded-xl border border-slate-200 p-6 hover:border-blue-200 hover:shadow-md transition-all"
-                >
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mb-3" />
-                  <h3 className="text-slate-900 font-bold text-base mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
+            <div className="stack">
+              {whyUs.map((item, i) => (
+                <div key={item.title} className={`why-row rise${i === whyUs.length - 1 ? " hair-end" : ""}`}>
+                  <span className="why-n">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="display d4">{item.title}</h3>
+                    <p className="small" style={{ margin: ".4rem 0 0" }}>
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -396,282 +315,170 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technology Partners */}
-      <section className="py-14 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-10">
-            Trusted Technology Partners
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
-            {[
-              { src: "/images/apple-logo.svg", alt: "Apple" },
-              { src: "/images/microsoft-logo.png", alt: "Microsoft" },
-              { src: "/images/bitdefender-logo.svg", alt: "Bitdefender" },
-              { src: "/images/fortinet-logo.svg", alt: "Fortinet" },
-              { src: "/images/backblaze-logo.jpeg", alt: "Backblaze", tall: true },
-            ].map((logo) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={logo.alt}
-                src={logo.src}
-                alt={logo.alt}
-                className={`${logo.tall ? "h-11" : "h-8"} w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Parallax 2 */}
-      <div
-        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80')" }}
-      >
-        <div className="absolute inset-0 bg-slate-900/70" />
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
-            Enterprise tools. Local expertise. Personal service.
-          </p>
-          <p className="text-slate-300 text-base sm:text-lg">
-            The security and reliability of a large IT firm — with a local team that actually picks up the phone.
-          </p>
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              What Clients Say
-            </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              38 years of relationships — built one solved problem at a time.
+      {/* Partners */}
+      <Partners />
+      <section style={{ paddingBottom: "clamp(3rem,5vw,4.5rem)" }}>
+        <div className="wrap">
+          <div className="tc mx mw-md">
+            <p className="display d3" style={{ margin: 0 }}>
+              Enterprise tools. Local expertise.
+              <br />
+              <span className="sage">Personal service.</span>
+            </p>
+            <p className="small mx mw-sm" style={{ marginTop: ".9rem" }}>
+              The security and reliability of a large IT firm &mdash; with a local team that
+              actually picks up the phone.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="pad">
+        <div className="wrap">
+          <div className="stack g-md" style={{ marginBottom: "clamp(2rem,4vw,3rem)" }}>
+            <span className="eyebrow">What clients say</span>
+            <h2 className="display d2 mw-lg">
+              38 years of relationships &mdash; built one solved problem at a time.
+            </h2>
+          </div>
+          <div className="cols-2">
             {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="bg-slate-800 border border-slate-700 rounded-xl p-8"
-              >
-                <svg
-                  className="w-8 h-8 text-blue-500 mb-4"
-                  fill="currentColor"
-                  viewBox="0 0 32 32"
-                >
-                  <path d="M10 8C6.686 8 4 10.686 4 14v10h10V14H7.333C7.333 11.791 8.791 10 10 10V8zm14 0c-3.314 0-6 2.686-6 6v10h10V14h-6.667C21.333 11.791 22.791 10 24 10V8z" />
-                </svg>
-                <p className="text-slate-300 text-base leading-relaxed mb-6 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <div className="text-white font-bold text-sm">{t.name}</div>
-                  <div className="text-slate-500 text-xs">{t.role}</div>
-                </div>
-              </div>
+              <figure key={t.name} className="quote rise">
+                <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                <figcaption>
+                  <span className="avatar" aria-hidden="true">
+                    {initials(t.name)}
+                  </span>
+                  <span>
+                    <b style={{ fontWeight: 600 }}>{t.name}</b>
+                    <br />
+                    <span className="tiny">{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Satisfaction Guarantee */}
-      <section className="py-16 bg-blue-600">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="flex-shrink-0">
-              <div className="w-24 h-24 bg-white bg-opacity-10 rounded-full flex items-center justify-center border-2 border-white border-opacity-30">
-                <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-            </div>
-            <div>
-              <div className="text-blue-200 text-xs font-semibold uppercase tracking-widest mb-2">
-                Our Promise
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                100% Satisfaction Guarantee
+      {/* Guarantee */}
+      <section className="pad arc-top" style={{ background: "var(--ink)", color: "var(--paper)" }}>
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "center" }}>
+            <div className="stack g-md">
+              <span className="eyebrow" style={{ color: "var(--sage)" }}>
+                Our promise
+              </span>
+              <h2 className="display d2">
+                100% Satisfaction
+                <br />
+                Guarantee.
               </h2>
-              <p className="text-blue-100 text-lg leading-relaxed max-w-2xl">
-                If you&apos;re not completely satisfied with the work, we make it right —
-                no arguments, no runaround. That&apos;s been our commitment to every client
-                for 38 years, and it&apos;s not changing.
-              </p>
             </div>
+            <div className="stack g-lg">
+              <p className="lede on-ink" style={{ margin: 0 }}>
+                If you&apos;re not completely satisfied with the work, we make it right &mdash;
+                no arguments, no runaround. That&apos;s been our commitment to every client for
+                38 years, and it&apos;s not changing.
+              </p>
+              <div className="row g-sm">
+                <Link href="/contact" className="btn btn-pale btn-lg">
+                  Schedule a Free Assessment <Arw />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <hr className="hair" style={{ background: "rgba(240,237,228,.14)", margin: "clamp(3rem,6vw,5rem) 0" }} />
+          <div className="tc mx mw-md">
+            <p className="display d3" style={{ margin: 0 }}>
+              Focus on your business.
+              <br />
+              We&apos;ll handle the tech.
+            </p>
+            <p className="small on-ink" style={{ marginTop: ".9rem" }}>
+              One call. One team. Everything IT &mdash; taken care of.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Parallax 3 */}
-      <div
-        className="relative h-56 sm:h-64 bg-cover bg-center bg-scroll lg:bg-fixed"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1920&q=80')" }}
-      >
-        <div className="absolute inset-0 bg-slate-900/70" />
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-          <p className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
-            Focus on your business. We&apos;ll handle the tech.
-          </p>
-          <p className="text-slate-300 text-base sm:text-lg">
-            One call. One team. Everything IT — taken care of.
-          </p>
-        </div>
-      </div>
-
-      {/* Service Area */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
-                Where We Serve
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-                Right Around the Corner
+      {/* Coverage */}
+      <section className="pad">
+        <div className="wrap">
+          <div className="split split-b" style={{ alignItems: "start" }}>
+            <div className="stack g-md">
+              <span className="eyebrow">Where we serve</span>
+              <h2 className="display d2">
+                Right around
+                <br />
+                the corner.
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mb-8">
-                On-site service across 13 New Jersey counties — plus remote
-                support available statewide and anywhere in the country.
+              <p className="lede mw-sm" style={{ margin: 0 }}>
+                On-site service across 13 New Jersey counties &mdash; plus remote support
+                available statewide and anywhere in the country.
               </p>
-
-              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">
-                On-Site Service Counties
-              </h3>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {counties.map((county) => (
-                  <span
-                    key={county}
-                    className="bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-full"
-                  >
-                    {county}
-                  </span>
-                ))}
+              <div className="stack g-sm" style={{ marginTop: ".75rem" }}>
+                <p className="eyebrow" style={{ margin: 0 }}>
+                  On-site service counties
+                </p>
+                <CountyChips />
               </div>
-
-              <div className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl p-5">
-                <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <div>
-                  <div className="font-semibold text-slate-900 text-sm mb-0.5">Remote Support Available Everywhere</div>
-                  <div className="text-slate-500 text-sm">
-                    Not in our on-site area? We provide remote support across all of New Jersey and throughout the United States.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-5">
-                Industries We Serve
-              </h3>
-              <ul className="space-y-3">
-                {industries.map((industry) => (
-                  <li key={industry} className="flex items-center gap-3 text-slate-700 text-sm">
-                    <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {industry}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-5">
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  <span className="font-semibold text-slate-900">Don&apos;t see your industry?</span>{" "}
-                  We&apos;ve worked with clients across virtually every type of small business.
-                  If you have computers and need them working reliably, we can help.
+              <div className="panel-sage" style={{ padding: "1.25rem 1.5rem", marginTop: ".5rem" }}>
+                <p className="eyebrow eyebrow-sage" style={{ margin: 0 }}>
+                  Remote support available everywhere
+                </p>
+                <p className="small" style={{ margin: ".5rem 0 0" }}>
+                  Not in our on-site area? We provide remote support across all of New Jersey
+                  and throughout the United States.
                 </p>
               </div>
             </div>
+            <div className="map-panel rise">
+              <NJMap />
+            </div>
+          </div>
+
+          <div style={{ marginTop: "clamp(3.5rem,7vw,6rem)" }}>
+            <IndustriesSplit />
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
-              FAQ
+      <section className="pad arc-top" style={{ background: "var(--paper-2)" }}>
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "start" }}>
+            <div className="stack g-md sticky-col">
+              <span className="eyebrow">FAQ</span>
+              <h2 className="display d2">
+                Common
+                <br />
+                questions.
+              </h2>
+              <p className="small mw-xs" style={{ margin: 0 }}>
+                Answers to what most clients ask before getting started.
+              </p>
+              <Link href="/contact" className="btn btn-line" style={{ alignSelf: "start", marginTop: ".5rem" }}>
+                Ask Us Directly <Arw />
+              </Link>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-              Common Questions
-            </h2>
-            <p className="text-slate-500 text-lg">
-              Answers to what most clients ask before getting started.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-200 transition-colors"
-              >
-                <h3 className="font-bold text-slate-900 mb-2 flex items-start gap-3">
-                  <span className="w-5 h-5 bg-blue-600 text-white text-xs font-extrabold rounded flex items-center justify-center flex-shrink-0 mt-0.5">?</span>
-                  {faq.q}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed pl-8">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <p className="text-slate-500 text-sm mb-4">
-              Have a question that&apos;s not answered here?
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded transition-colors text-sm"
-            >
-              Ask Us Directly
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <div className="stack hair-end">
+              {faqs.map((faq, i) => (
+                <details key={faq.q} className="faq" open={i === 0}>
+                  <summary>{faq.q}</summary>
+                  <p>{faq.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">
-            Ready to stop fighting your technology?
-          </h2>
-          <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-            Schedule a free IT assessment — we&apos;ll review your setup, find
-            the gaps, and tell you exactly what we&apos;d fix and why.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-blue-600 font-bold text-base px-8 py-4 rounded hover:bg-blue-50 transition-colors"
-            >
-              Schedule a Free Assessment
-            </Link>
-            <a
-              href="https://DoubleClick.as.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-700 hover:bg-blue-800 text-white font-semibold text-base px-8 py-4 rounded transition-colors"
-            >
-              Book Online
-            </a>
-            <a
-              href="tel:+18889254259"
-              className="bg-blue-800 hover:bg-blue-900 text-white font-semibold text-base px-8 py-4 rounded transition-colors"
-            >
-              Call (888) 9-CLICK-9
-            </a>
-          </div>
-        </div>
-      </section>
+      <Cta
+        title="Ready to stop fighting your technology?"
+        lede="Schedule a free IT assessment — we'll review your setup, find the gaps, and tell you exactly what we'd fix and why."
+      />
     </>
   );
 }

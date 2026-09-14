@@ -14,7 +14,6 @@ export default function HomeOffice() {
       tag="Residential & Home Office"
       title="Home Office Support"
       description="Working from home should work. We set up and support home offices so you can stay productive — reliable internet, proper equipment, and the tools your job requires."
-      accentColor="sky"
       includes={[
         { label: "Home office network setup", detail: "Dedicated wired connection for your desk if needed, optimized Wi-Fi, and backup connection options." },
         { label: "VPN configuration", detail: "Secure connection to your company network — set up and tested so it works reliably." },
@@ -34,7 +33,7 @@ export default function HomeOffice() {
         "We can recommend and source the right equipment for your home office.",
         "Video call setups can make a significant difference in how you're perceived professionally.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1400&q=80"
+      gfx="room"
     />
   );
 }

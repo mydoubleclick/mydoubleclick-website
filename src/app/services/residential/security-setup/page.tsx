@@ -14,7 +14,6 @@ export default function SecuritySetup() {
       tag="Residential & Home Office"
       title="Security Setup"
       description="Cybercriminals don't just target businesses. Homeowners are constantly targeted through phishing, fake tech support scams, and compromised websites. We set up the right defenses — no technical knowledge required."
-      accentColor="sky"
       includes={[
         { label: "Antivirus installation & configuration", detail: "Reputable endpoint security installed on all your computers." },
         { label: "Password manager setup", detail: "We set up and teach you to use a password manager — the single biggest security improvement most people can make." },
@@ -34,7 +33,7 @@ export default function SecuritySetup() {
         "We explain everything in plain English — no jargon.",
         "Good for the whole family — we can set up parental controls too.",
       ]}
-      heroImage="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1400&q=80"
+      gfx="home"
     />
   );
 }

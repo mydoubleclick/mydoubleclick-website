@@ -1,4 +1,7 @@
 import Link from "next/link";
+import type { GfxName } from "@/components/gfx";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/data/site";
+import { Arw, CheckIcon, Cta, Frame } from "@/components/site";
 
 interface Step {
   step: string;
@@ -20,11 +23,10 @@ interface ServiceDetailPageProps {
   includes: IncludesItem[];
   steps?: Step[];
   notes?: string[];
-  accentColor?: "blue" | "sky";
-  /** Optional Unsplash or other image URL shown in the header right panel */
-  heroImage?: string;
-  /** Alt text for the hero image */
-  heroImageAlt?: string;
+  /** Illustration shown in the hero arch */
+  gfx: GfxName;
+  /** Extra content rendered before the closing call to action */
+  children?: React.ReactNode;
 }
 
 export default function ServiceDetailPage({
@@ -36,138 +38,60 @@ export default function ServiceDetailPage({
   includes,
   steps,
   notes,
-  accentColor = "blue",
-  heroImage,
-  heroImageAlt,
+  gfx,
+  children,
 }: ServiceDetailPageProps) {
-  const ctaBg = accentColor === "sky" ? "bg-sky-500" : "bg-blue-600";
-  const ctaHover = accentColor === "sky" ? "hover:bg-sky-600" : "hover:bg-blue-700";
-  const dotColor = accentColor === "sky" ? "bg-sky-500" : "bg-blue-600";
-  const checkColor = accentColor === "sky" ? "text-sky-500" : "text-blue-600";
-
   return (
     <>
-      {/* Header */}
-      <section className="bg-blue-50 border-b border-blue-100 relative overflow-hidden min-h-[220px]">
-        {/* Right-panel image (desktop only) */}
-        {heroImage ? (
-          <>
-            <div className="absolute right-0 top-0 w-5/12 h-full hidden lg:block overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={heroImage}
-                alt=""
-                aria-hidden="true"
-                className="w-full h-full object-cover"
-              />
-              {/* Left-edge fade so image blends into blue-50 background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/30 to-transparent" />
+      {/* Hero */}
+      <section className="phero">
+        <div className="wrap">
+          <div className="split split-a">
+            <div className="stack g-lg">
+              <nav className="crumbs" aria-label="Breadcrumb">
+                <Link href="/services">Services</Link>
+                <span aria-hidden="true">/</span>
+                <Link href={breadcrumbHref}>{breadcrumb}</Link>
+                <span aria-hidden="true">/</span>
+                <span className="sage">{tag}</span>
+              </nav>
+              <h1 className="display d2 mw-lg">{title}</h1>
+              <p className="lede mw-md" style={{ margin: 0 }}>
+                {description}
+              </p>
+              <div className="row g-sm">
+                <Link href="/contact" className="btn btn-sage btn-lg">
+                  Get a Free Assessment <Arw />
+                </Link>
+                <a href={PHONE_HREF} className="btn btn-line btn-lg">
+                  Call {PHONE_DISPLAY}
+                </a>
+              </div>
             </div>
-            {/* Dot grid over image for texture */}
-            <div
-              className="absolute right-0 top-0 w-5/12 h-full hidden lg:block opacity-10 pointer-events-none"
-              style={{
-                backgroundImage: "radial-gradient(circle, #1e3a5f 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-            />
-          </>
-        ) : (
-          /* No image — just the dot grid */
-          <div
-            className="absolute right-0 top-0 w-2/5 h-full opacity-20"
-            style={{
-              backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-        )}
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-            <Link href="/services" className="hover:text-blue-600 transition-colors">
-              Services
-            </Link>
-            <span>/</span>
-            <Link href={breadcrumbHref} className="hover:text-blue-600 transition-colors">
-              {breadcrumb}
-            </Link>
+            <Frame gfx={gfx} style={{ aspectRatio: "1/1", minHeight: "18rem" }} />
           </div>
-          <div className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
-            {tag}
-          </div>
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4 max-w-2xl">{title}</h1>
-          <p className="text-slate-600 text-lg max-w-2xl">{description}</p>
         </div>
       </section>
 
       {/* What's included */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-8">
-                What&apos;s Included
+      <section className="pad-s">
+        <div className="wrap">
+          <div className="split split-a" style={{ alignItems: "start" }}>
+            <div className="stack g-md sticky-col">
+              <span className="eyebrow">What&apos;s included</span>
+              <h2 className="display d2">
+                Everything
+                <br />
+                we handle.
               </h2>
-              <ul className="space-y-4">
-                {includes.map((item) => (
-                  <li key={item.label} className="flex items-start gap-3">
-                    <svg
-                      className={`w-5 h-5 ${checkColor} flex-shrink-0 mt-0.5`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <div>
-                      <div className="text-slate-900 font-semibold text-sm">
-                        {item.label}
-                      </div>
-                      {item.detail && (
-                        <div className="text-slate-500 text-sm mt-0.5">
-                          {item.detail}
-                        </div>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-5">
-              {/* CTA card */}
-              <div className={`${ctaBg} rounded-2xl p-8 text-white`}>
-                <h3 className="text-xl font-extrabold mb-3">
-                  Get a Free Assessment
-                </h3>
-                <p className="text-white text-opacity-80 text-sm mb-6">
-                  Tell us about your setup and what you need. We&apos;ll give
-                  you an honest assessment and a clear quote — no pressure.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-block bg-white text-slate-900 font-bold px-6 py-3 rounded hover:bg-slate-100 transition-colors text-sm"
-                >
-                  Contact Us
-                </Link>
-              </div>
-
-              {/* Notes */}
               {notes && notes.length > 0 && (
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-6">
-                  <h3 className="font-bold text-slate-900 mb-3 text-sm uppercase tracking-wide">
-                    Good to Know
-                  </h3>
-                  <ul className="space-y-2">
-                    {notes.map((note, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <div className={`w-1.5 h-1.5 ${dotColor} rounded-full flex-shrink-0 mt-1.5`} />
+                <div className="panel-sage" style={{ padding: "1.25rem 1.5rem", marginTop: ".5rem" }}>
+                  <p className="eyebrow eyebrow-sage" style={{ margin: 0 }}>
+                    Good to know
+                  </p>
+                  <ul className="small" style={{ margin: ".6rem 0 0", paddingLeft: "1.1rem" }}>
+                    {notes.map((note) => (
+                      <li key={note} style={{ marginTop: ".3rem" }}>
                         {note}
                       </li>
                     ))}
@@ -175,25 +99,37 @@ export default function ServiceDetailPage({
                 </div>
               )}
             </div>
+            <div className="hair-end">
+              {includes.map((item) => (
+                <div key={item.label} className="check-row rise">
+                  <span className="check">
+                    <CheckIcon />
+                  </span>
+                  <div>
+                    <h3>{item.label}</h3>
+                    {item.detail && <p className="small">{item.detail}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* How it works */}
       {steps && steps.length > 0 && (
-        <section className="py-16 bg-slate-50 border-t border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-slate-900 mb-10 text-center">
-              How It Works
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="pad arc-top" style={{ background: "var(--paper-2)" }}>
+          <div className="wrap">
+            <div className="stack g-md" style={{ marginBottom: "clamp(2rem,4vw,3rem)" }}>
+              <span className="eyebrow">How it works</span>
+              <h2 className="display d2">Three simple steps.</h2>
+            </div>
+            <div className="cols-3">
               {steps.map((s) => (
-                <div key={s.step} className="text-center">
-                  <div className="w-10 h-10 bg-slate-900 text-white text-sm font-extrabold rounded-full flex items-center justify-center mx-auto mb-4">
-                    {s.step}
-                  </div>
-                  <h3 className="font-bold text-slate-900 mb-2">{s.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
+                <div key={s.step} className="stack g-sm rise">
+                  <span className="step-n">{s.step.padStart(2, "0")}</span>
+                  <h3 className="display d4">{s.title}</h3>
+                  <p className="small" style={{ margin: 0 }}>
                     {s.description}
                   </p>
                 </div>
@@ -203,33 +139,9 @@ export default function ServiceDetailPage({
         </section>
       )}
 
-      {/* Bottom CTA strip */}
-      <section className="bg-slate-900 py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-xl font-extrabold text-white mb-1">
-              Ready to get started?
-            </h2>
-            <p className="text-slate-400 text-sm">
-              Reach out and we&apos;ll get back to you the same day.
-            </p>
-          </div>
-          <div className="flex gap-4 flex-shrink-0">
-            <Link
-              href="/contact"
-              className={`${ctaBg} ${ctaHover} text-white font-bold px-6 py-3 rounded transition-colors text-sm`}
-            >
-              Contact Us
-            </Link>
-            <a
-              href="tel:+18889254259"
-              className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-6 py-3 rounded transition-colors text-sm"
-            >
-              (888) 9-CLICK-9
-            </a>
-          </div>
-        </div>
-      </section>
+      {children}
+
+      <Cta title="Ready to get started?" lede="Reach out and we'll get back to you the same day." />
     </>
   );
 }

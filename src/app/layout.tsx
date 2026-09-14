@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Manrope, Young_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ParallaxFallback from "@/components/ParallaxFallback";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+// Young Serif ships a single weight — never fake-bold it.
+const youngSerif = Young_Serif({
+  variable: "--font-young-serif",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -138,7 +147,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${geist.variable} h-full antialiased`}>
+    <html lang="en" className={`${youngSerif.variable} ${manrope.variable}`}>
       <head>
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS38M64W0K" />
@@ -158,10 +167,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main>{children}</main>
         <Footer />
+        <ParallaxFallback />
       </body>
     </html>
   );

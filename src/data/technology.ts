@@ -2,6 +2,8 @@
 // Brand names are listed as products we install and support — never as
 // "partners" or "authorized dealers" unless that relationship actually exists.
 
+import type { GfxName } from "@/components/gfx";
+
 export interface TechPoint {
   label: string;
   detail: string;
@@ -22,7 +24,7 @@ export interface TechCategory {
   intro: string;
   /** Heroicons outline path(s) */
   icon: string;
-  heroImage: string;
+  gfx: GfxName;
   business: TechPoint[];
   /** Omit for business-only categories */
   home?: TechPoint[];
@@ -40,8 +42,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Smart home technology is only convenient when it's set up correctly. We design, install, and connect smart devices so your lights, climate, locks, and voice assistants work together on a secure network — for your home and your office.",
     icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
-    heroImage:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=80",
+    gfx: "home",
     business: [
       { label: "Smart thermostats & energy control", detail: "Schedule heating and cooling around business hours and manage multiple locations from one app." },
       { label: "Smart locks & keyless entry", detail: "Issue and revoke door codes for staff, cleaners, and vendors without changing locks." },
@@ -82,8 +83,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Cyber threats don't care whether you're a 300-person company or a family at home. We build layered protection — endpoint security, firewalls, strong authentication, and reliable backup — and we monitor it so problems are caught early.",
     icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-    heroImage:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80",
+    gfx: "layers",
     business: [
       { label: "Managed endpoint protection", detail: "Business-grade antivirus and threat detection on every computer, centrally monitored." },
       { label: "Next-generation firewalls", detail: "Web filtering, intrusion prevention, and secure VPN access for remote staff." },
@@ -120,8 +120,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "AI is now built into the software and computers businesses use every day. We help you separate the useful from the hype, choose the right tools, connect them to the apps you already use with your data protected, and train your team to get real time back. We help families get started with AI, too.",
     icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-    heroImage:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80",
+    gfx: "ai",
     business: [
       { label: "AI assistants for your team", detail: "Copilot, ChatGPT, Gemini, or Claude — chosen for how your business actually works." },
       { label: "AI inside Microsoft 365 & Google Workspace", detail: "Copilot or Gemini turned on and configured in the email, documents, and spreadsheets your team already uses." },
@@ -161,8 +160,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Every connected device depends on the network underneath it. We design and install business networks and whole-home Wi-Fi — including mesh systems and the latest Wi-Fi 7 equipment — so everything stays fast, secure, and connected.",
     icon: "M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0",
-    heroImage:
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80",
+    gfx: "mesh",
     business: [
       { label: "Business-grade Wi-Fi", detail: "Managed access points sized for your space, staff, and number of devices." },
       { label: "Managed & PoE switches", detail: "Network switches that also power access points, cameras, and phones over a single cable — monitored and updated." },
@@ -202,8 +200,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "See who's at the door, what's happening at the office, and who came and went — from your phone. We install camera systems, video doorbells, smart locks, and access control, and set them up on a secure network with sensible privacy settings.",
     icon: "M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z",
-    heroImage:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1400&q=80",
+    gfx: "net",
     business: [
       { label: "Office & storefront cameras", detail: "Indoor and outdoor cameras with local recording and remote viewing." },
       { label: "Door access control", detail: "Key cards, fobs, or phone-based entry with a log of who entered and when." },
@@ -243,8 +240,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "The right hardware makes work easier. We help you choose computers and accessories that fit how you work, then set everything up — data transferred, docks connected, printers working — so it's ready on day one.",
     icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    heroImage:
-      "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=1400&q=80",
+    gfx: "fleet",
     business: [
       { label: "Laptop & desktop deployment", detail: "Business-class machines configured, secured, and ready for each employee." },
       { label: "Choosing the right processor", detail: "Intel Core Ultra, AMD Ryzen AI, or Qualcomm Snapdragon X — we match the chip to your software, not the marketing." },
@@ -283,8 +279,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Wearables were one of the most visible trends at CES 2026 — AI-powered smart glasses, health-tracking watches, and smart rings. We set them up, pair them with your phone and accounts, and make sure the data they collect stays private.",
     icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
-    heroImage:
-      "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=1400&q=80",
+    gfx: "watch",
     business: [
       { label: "Smart glasses at work", detail: "Hands-free photos, video, and voice assistance for field, on-site, and inspection work." },
       { label: "Recording & privacy policies", detail: "Smart glasses can record discreetly. We help you set clear workplace rules and configure devices to match." },
@@ -318,8 +313,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Nothing wastes a meeting like fighting with the technology. We set up conference rooms and personal video-call setups with the right cameras, microphones, and displays for Zoom, Microsoft Teams, and Google Meet.",
     icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-    heroImage:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80",
+    gfx: "room",
     business: [
       { label: "Conference room systems", detail: "All-in-one video bars and room kits sized for huddle rooms to boardrooms." },
       { label: "Wireless screen sharing", detail: "Share a laptop screen to the room display without hunting for cables." },
@@ -350,8 +344,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Screens are one of the best ways to reach customers and staff. We install commercial displays, set up cloud-managed signage you can update from your computer or phone, and make presenting in meetings as simple as one click.",
     icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
-    heroImage:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&q=80",
+    gfx: "signage",
     business: [
       { label: "Lobby & reception screens", detail: "Welcome messages, announcements, and videos that run on a schedule." },
       { label: "Menu boards & promotions", detail: "Prices and specials updated from your computer or phone — no reprinting." },
@@ -383,8 +376,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "Modern TVs, streaming boxes, and speakers are really just computers on your network. We connect them, sort out the apps and accounts, and make sure the remote does what you expect — in the living room, the lobby, or the waiting room.",
     icon: "M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z",
-    heroImage:
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1400&q=80",
+    gfx: "monitor",
     business: [
       { label: "Lobby & waiting room displays", detail: "Screens for TV, announcements, or digital signage that run on their own." },
       { label: "Background music", detail: "Multi-room audio for offices, showrooms, and restaurants." },
@@ -423,8 +415,7 @@ export const technologyCategories: TechCategory[] = [
     intro:
       "A power flicker can corrupt files, fry equipment, and take your internet down. We install battery backups and surge protection for computers, servers, and network gear — and portable power options to keep essentials running during outages.",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
-    heroImage:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1400&q=80",
+    gfx: "power",
     business: [
       { label: "UPS battery backup", detail: "Keep servers, firewalls, and network equipment running through short outages." },
       { label: "Safe automatic shutdown", detail: "Systems shut down cleanly during long outages to protect data." },
