@@ -131,6 +131,8 @@ export default function RootLayout({
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Setup & Integration" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Security Cameras & Access Control" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conference Room & Video Technology" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Signage & Business Displays" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart Glasses & Wearables Setup" } },
       ],
     },
   };

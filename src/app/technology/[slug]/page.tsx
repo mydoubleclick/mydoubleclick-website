@@ -99,7 +99,7 @@ export default async function TechnologyCategoryPage({
       {/* Business & Home */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className={`grid grid-cols-1 gap-8 ${cat.home ? "lg:grid-cols-2" : "max-w-3xl mx-auto"}`}>
             <div className="border border-slate-200 rounded-2xl overflow-hidden">
               <div className="bg-blue-600 px-8 py-6">
                 <div className="text-blue-100 text-xs font-semibold uppercase tracking-widest mb-1">
@@ -111,17 +111,19 @@ export default async function TechnologyCategoryPage({
                 <PointList items={cat.business} checkColor="text-blue-600" />
               </div>
             </div>
-            <div className="border border-slate-200 rounded-2xl overflow-hidden">
-              <div className="bg-sky-500 px-8 py-6">
-                <div className="text-sky-100 text-xs font-semibold uppercase tracking-widest mb-1">
-                  Residential
+            {cat.home && (
+              <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                <div className="bg-sky-500 px-8 py-6">
+                  <div className="text-sky-100 text-xs font-semibold uppercase tracking-widest mb-1">
+                    Residential
+                  </div>
+                  <h2 className="text-2xl font-extrabold text-white">For Your Home</h2>
                 </div>
-                <h2 className="text-2xl font-extrabold text-white">For Your Home</h2>
+                <div className="px-8 py-8">
+                  <PointList items={cat.home} checkColor="text-sky-500" />
+                </div>
               </div>
-              <div className="px-8 py-8">
-                <PointList items={cat.home} checkColor="text-sky-500" />
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
