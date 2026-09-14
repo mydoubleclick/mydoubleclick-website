@@ -79,9 +79,31 @@ export default function Contact() {
             <div className="stack g-md">
               <div className="panel-pale" style={{ padding: "1.5rem" }}>
                 <span className="eyebrow">Phone</span>
-                <p className="display d3" style={{ margin: ".5rem 0 0" }}>
+                <p className="display d3" style={{ margin: ".5rem 0 .3rem" }}>
                   <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
                 </p>
+                <p className="tiny" style={{ margin: 0 }}>
+                  Main line &mdash; press 0 for support, 1 to schedule an appointment
+                </p>
+                <div className="stack" style={{ marginTop: "1rem" }}>
+                  {/* the comma pauses, then dials the extension on phones */}
+                  {[
+                    { name: "Jason Hubert", ext: "700" },
+                    { name: "Zach Hubert", ext: "701" },
+                  ].map((p) => (
+                    <a
+                      key={p.ext}
+                      href={`${PHONE_HREF},${p.ext}`}
+                      className="row between g-sm"
+                      style={{ padding: ".7rem 0", borderTop: "1px solid var(--hair)" }}
+                    >
+                      <span className="small" style={{ fontWeight: 600, color: "var(--ink)" }}>
+                        {p.name}
+                      </span>
+                      <span className="chip chip-sage">Ext. {p.ext}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
               <div className="panel-pale" style={{ padding: "1.5rem" }}>
                 <span className="eyebrow">Email</span>
